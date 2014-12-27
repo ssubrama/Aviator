@@ -1,0 +1,229 @@
+CONSOLE MESSAGE: line 26: test,test2,,,test4,,,,,
+CONSOLE MESSAGE: line 27: %o
+CONSOLE MESSAGE: line 28: %O
+CONSOLE MESSAGE: line 29: Test for zero "%f" in formatter
+CONSOLE MESSAGE: line 30: %% self-escape1
+CONSOLE MESSAGE: line 31: %%s self-escape2
+CONSOLE MESSAGE: line 32: %%ss self-escape3
+CONSOLE MESSAGE: line 33: %%s%s%%s self-escape4
+CONSOLE MESSAGE: line 34: %%%%% self-escape5
+CONSOLE MESSAGE: line 35: %%%s self-escape6
+CONSOLE MESSAGE: line 12: /^url\(\s*(?:(?:"(?:[^\\\"]|(?:\\[\da-f]{1,6}\s?|\.))*"|'(?:[^\\\']|(?:\\[\da-f]{1,6}\s?|\.))*')|(?:[!#$%&*-~\w]|(?:\\[\da-f]{1,6}\s?|\.))*)\s*\)/i
+CONSOLE MESSAGE: line 13: /^url\(\s*(?:(?:"(?:[^\\\"]|(?:\\[\da-f]{1,6}\s?|\.))*"|'(?:[^\\\']|(?:\\[\da-f]{1,6}\s?|\.))*')|(?:[!#$%&*-~\w]|(?:\\[\da-f]{1,6}\s?|\.))*)\s*\)/i
+CONSOLE MESSAGE: line 12: /foo\\bar\sbaz/i
+CONSOLE MESSAGE: line 13: /foo\\bar\sbaz/i
+CONSOLE MESSAGE: line 12: test
+CONSOLE MESSAGE: line 13: test
+CONSOLE MESSAGE: line 12: test named "test"
+CONSOLE MESSAGE: line 13: test named "test"
+CONSOLE MESSAGE: line 12: Error
+CONSOLE MESSAGE: line 13: Error
+CONSOLE MESSAGE: line 12: Error: my error message
+CONSOLE MESSAGE: line 13: Error: my error message
+CONSOLE MESSAGE: line 12: [object HTMLParagraphElement]
+CONSOLE MESSAGE: line 13: [object HTMLParagraphElement]
+CONSOLE MESSAGE: line 12: function () { return 1; }
+CONSOLE MESSAGE: line 13: function () { return 1; }
+CONSOLE MESSAGE: line 12: function () {
+        return 2;
+    }
+CONSOLE MESSAGE: line 13: function () {
+        return 2;
+    }
+CONSOLE MESSAGE: line 12: 0.12
+CONSOLE MESSAGE: line 13: 0.12
+CONSOLE MESSAGE: line 12: http://webkit.org/
+CONSOLE MESSAGE: line 13: http://webkit.org/
+CONSOLE MESSAGE: line 12: null
+CONSOLE MESSAGE: line 13: 
+CONSOLE MESSAGE: line 12: undefined
+CONSOLE MESSAGE: line 13: 
+CONSOLE MESSAGE: line 12: [object Attr]
+CONSOLE MESSAGE: line 13: [object Attr]
+CONSOLE MESSAGE: line 12: [object Attr]
+CONSOLE MESSAGE: line 13: [object Attr]
+CONSOLE MESSAGE: line 12: [object Attr]
+CONSOLE MESSAGE: line 13: [object Attr]
+CONSOLE MESSAGE: line 12: [object Object]
+CONSOLE MESSAGE: line 13: [object Object]
+CONSOLE MESSAGE: line 12: NaN
+CONSOLE MESSAGE: line 13: NaN
+CONSOLE MESSAGE: line 12: Infinity
+CONSOLE MESSAGE: line 13: Infinity
+CONSOLE MESSAGE: line 12: -Infinity
+CONSOLE MESSAGE: line 13: -Infinity
+CONSOLE MESSAGE: line 12: test,test2,,,test4,,,,,
+CONSOLE MESSAGE: line 13: test,test2,,,test4,,,,,
+CONSOLE MESSAGE: line 12: [object Object]
+CONSOLE MESSAGE: line 13: [object Object]
+CONSOLE MESSAGE: line 12: function () {}
+CONSOLE MESSAGE: line 13: function () {}
+CONSOLE MESSAGE: line 12: [object Object]
+CONSOLE MESSAGE: line 13: [object Object]
+CONSOLE MESSAGE: line 12: [object SVGSVGElement]
+CONSOLE MESSAGE: line 13: [object SVGSVGElement]
+CONSOLE MESSAGE: line 12: [object Object]
+CONSOLE MESSAGE: line 13: [object Object]
+CONSOLE MESSAGE: line 12: 0
+CONSOLE MESSAGE: line 13: 0
+CONSOLE MESSAGE: line 12: 
+CONSOLE MESSAGE: line 13: 
+CONSOLE MESSAGE: line 12: function Object() { [native code] }
+CONSOLE MESSAGE: line 13: function Object() { [native code] }
+CONSOLE MESSAGE: line 12: [object Object]
+CONSOLE MESSAGE: line 13: [object Object]
+CONSOLE MESSAGE: line 12: function () {}
+CONSOLE MESSAGE: line 13: function () {}
+CONSOLE MESSAGE: line 12: 42
+CONSOLE MESSAGE: line 13: 42
+CONSOLE MESSAGE: line 12: abc
+CONSOLE MESSAGE: line 13: abc
+Tests that console logging dumps proper messages.
+
+ Array[10]0: "test"1: "test2"4: "test4"foo: Objectlength: 10__proto__: Array[0] console-format.html:26
+Array[10]0: "test"1: "test2"4: "test4"foo: Objectlength: 10__proto__: Array[0] console-format.html:27
+Array[10]0: "test"1: "test2"4: "test4"foo: Objectlength: 10__proto__: Array[0] console-format.html:28
+Test for zero "0" in formatter console-format.html:29
+% self-escape1 dummy console-format.html:30
+%s self-escape2 dummy console-format.html:31
+%ss self-escape3 dummy console-format.html:32
+%sdummy%s self-escape4 console-format.html:33
+%%% self-escape5 dummy console-format.html:34
+%dummy self-escape6 console-format.html:35
+/^url\(\s*(?:(?:"(?:[^\\\"]|(?:\\[\da-f]{1,6}\s?|\.))*"|'(?:[^\\\']|(?:\\[\da-f]{1,6}\s?|\.))*')|(?:[!#$%&*-~\w]|(?:\\[\da-f]{1,6}\s?|\.))*)\s*\)/i console-format.html:12
+[/^url\(\s*(?:(?:"(?:[^\\\"]|(?:\\[\da-f]{1,6}\s?|\…?:[!#$%&*-~\w]|(?:\\[\da-f]{1,6}\s?|\.))*)\s*\)/i]0: /^url\(\s*(?:(?:"(?:[^\\\"]|(?:\\[\da-f]{1,6}\s?|\.))*"|'(?:[^\\\']|(?:\\[\da-f]{1,6}\s?|\.))*')|(?:[!#$%&*-~\w]|(?:\\[\da-f]{1,6}\s?|\.))*)\s*\)/ilength: 1__proto__: Array[0] console-format.html:13
+globals[0]
+/^url\(\s*(?:(?:"(?:[^\\\"]|(?:\\[\da-f]{1,6}\s?|\.))*"|'(?:[^\\\']|(?:\\[\da-f]{1,6}\s?|\.))*')|(?:[!#$%&*-~\w]|(?:\\[\da-f]{1,6}\s?|\.))*)\s*\)/i
+/foo\\bar\sbaz/i console-format.html:12
+[/foo\\bar\sbaz/i]0: /foo\\bar\sbaz/ilength: 1__proto__: Array[0] console-format.html:13
+globals[1]
+/foo\\bar\sbaz/i
+test console-format.html:12
+["test"] console-format.html:13
+globals[2]
+"test"
+test named "test" console-format.html:12
+["test named "test""] console-format.html:13
+globals[3]
+"test named "test""
+Error {stack: (...)}stack: (...)get stack: function () { [native code] }set stack: function () { [native code] }__proto__: d console-format.html:12
+[Error]0: Errorlength: 1__proto__: Array[0] console-format.html:13
+globals[4]
+Error {stack: (...)}stack: (...)get stack: function () { [native code] }set stack: function () { [native code] }__proto__: d
+Error {stack: (...), message: "my error message"}message: "my error message"stack: (...)get stack: function () { [native code] }set stack: function () { [native code] }__proto__: d console-format.html:12
+[Error]0: Errorlength: 1__proto__: Array[0] console-format.html:13
+globals[5]
+Error {stack: (...), message: "my error message"}message: "my error message"stack: (...)get stack: function () { [native code] }set stack: function () { [native code] }__proto__: d
+<p id="p">Tests that console logging dumps proper messages.</p> console-format.html:12
+[p#p]0: p#plength: 1__proto__: Array[0] console-format.html:13
+globals[6]
+<p id="p">Tests that console logging dumps proper messages.</p>
+function () { return 1; } console-format.html:12
+[function]0: function () { return 1; }length: 1__proto__: Array[0] console-format.html:13
+globals[7]
+function () { return 1; } console-format.html:45
+function () {
+        return 2;
+    } console-format.html:12
+[function]0: function () {length: 1__proto__: Array[0] console-format.html:13
+globals[8]
+function () {
+        return 2;
+    } console-format.html:46
+0.12 console-format.html:12
+[0.12] console-format.html:13
+globals[9]
+0.12
+http://webkit.org/ console-format.html:12
+["http://webkit.org/"] console-format.html:13
+globals[10]
+"http://webkit.org/"
+null console-format.html:12
+[null] console-format.html:13
+globals[11]
+null
+undefined console-format.html:12
+[undefined] console-format.html:13
+globals[12]
+undefined
+attr="" console-format.html:12
+[attr]0: attrlength: 1__proto__: Array[0] console-format.html:13
+globals[13]
+attr=""
+attr="value""value" console-format.html:12
+[attr]0: attrlength: 1__proto__: Array[0] console-format.html:13
+globals[14]
+attr="value""value"
+id="x""x" console-format.html:12
+[id]0: idlength: 1__proto__: Array[0] console-format.html:13
+globals[15]
+id="x""x"
+Object {length: (...)}length: (...)get length: function length() { throw "Length called"; }__proto__: Object console-format.html:12
+[Object]0: Objectlength: 1__proto__: Array[0] console-format.html:13
+globals[16]
+Object {length: (...)}length: (...)get length: function length() { throw "Length called"; }__proto__: Object
+NaN console-format.html:12
+[NaN] console-format.html:13
+globals[17]
+NaN
+Infinity console-format.html:12
+[Infinity] console-format.html:13
+globals[18]
+Infinity
+-Infinity console-format.html:12
+[-Infinity] console-format.html:13
+globals[19]
+-Infinity
+["test", "test2", 4: "test4", foo: Object]0: "test"1: "test2"4: "test4"foo: Objectlength: 10__proto__: Array[0] console-format.html:12
+[Array[10]]0: Array[10]length: 1__proto__: Array[0] console-format.html:13
+globals[20]
+["test", "test2", undefined × 2, "test4", undefined × 5]
+Object {} console-format.html:12
+[Object]0: Objectlength: 1__proto__: Array[0] console-format.html:13
+globals[21]
+Object {}
+[function]0: function () {}length: 1__proto__: Array[0] console-format.html:12
+[Array[1]]0: Array[1]length: 1__proto__: Array[0] console-format.html:13
+globals[22]
+[function () {}]
+Object {bar: "bar", foo: "foo"} console-format.html:12
+[Object]0: Objectlength: 1__proto__: Array[0] console-format.html:13
+globals[23]
+Object {bar: "bar", foo: "foo"}
+<svg id="svg-node"></svg> console-format.html:12
+[svg#svg-node]0: svg#svg-nodelength: 1__proto__: Array[0] console-format.html:13
+globals[24]
+<svg id="svg-node"></svg>
+Object {bar: (...), foo: 1}bar: (...)get bar: function () { return this.bar; }set bar: function (x) { this.bar = x; }getFoo: function () { return this.foo; }__proto__: Object console-format.html:12
+[Object]0: Objectlength: 1__proto__: Array[0] console-format.html:13
+globals[25]
+Object {bar: (...), foo: 1}bar: (...)get bar: function () { return this.bar; }set bar: function (x) { this.bar = x; }getFoo: function () { return this.foo; }__proto__: Object
+-0 console-format.html:12
+[-0] console-format.html:13
+globals[26]
+-0
+Object {} console-format.html:12
+[Object]0: Objectlength: 1__proto__: Array[0] console-format.html:13
+globals[27]
+Object {}
+function Object() { [native code] } console-format.html:12
+[function]0: function Object() { [native code] }length: 1__proto__: Array[0] console-format.html:13
+globals[28]
+function Object() { [native code] }
+Object {} console-format.html:12
+[Object]0: Objectlength: 1__proto__: Array[0] console-format.html:13
+globals[29]
+Object {}
+function () {} console-format.html:12
+[function]0: function () {}length: 1__proto__: Array[0] console-format.html:13
+globals[30]
+function () {} console-format.html:62
+Number {[[PrimitiveValue]]: 42} console-format.html:12
+[Number]0: Numberlength: 1__proto__: Array[0] console-format.html:13
+globals[31]
+Number {[[PrimitiveValue]]: 42}
+String {0: "a", 1: "b", 2: "c", length: 3, [[PrimitiveValue]]: "abc"} console-format.html:12
+[String]0: Stringlength: 1__proto__: Array[0] console-format.html:13
+globals[32]
+String {0: "a", 1: "b", 2: "c", length: 3, [[PrimitiveValue]]: "abc"}
+

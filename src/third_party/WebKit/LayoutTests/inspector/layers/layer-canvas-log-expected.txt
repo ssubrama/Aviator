@@ -1,0 +1,214 @@
+
+Canvas log:
+{
+    0 : {
+        method : "save"
+        params : {
+        }
+    }
+    1 : {
+        method : "drawRect"
+        params : {
+            paint : {
+                color : "#FF0000FF"
+                filterLevel : "Low"
+                flags : "AntiAlias"
+                hinting : "Normal"
+                strokeCap : "Butt"
+                strokeJoin : "Miter"
+                strokeMiter : 4
+                strokeWidth : 0
+                styleName : "Fill"
+                textAlign : "Left"
+                textEncoding : "UTF-8"
+                textScaleX : 1
+                textSize : 12
+                textSkewX : 0
+            }
+            rect : {
+                bottom : 100
+                left : 0
+                right : 100
+                top : 0
+            }
+        }
+    }
+    10 : {
+        method : "drawRect"
+        params : {
+            paint : {
+                color : "#FF000000"
+                filterLevel : "Low"
+                flags : "AntiAlias"
+                hinting : "Normal"
+                strokeCap : "Butt"
+                strokeJoin : "Miter"
+                strokeMiter : 4
+                strokeWidth : 0
+                styleName : "Fill"
+                textAlign : "Left"
+                textEncoding : "UTF-8"
+                textScaleX : 1
+                textSize : 12
+                textSkewX : 0
+            }
+            rect : {
+                bottom : 10
+                left : 0
+                right : 10
+                top : 0
+            }
+        }
+    }
+    11 : {
+        method : "restore"
+    }
+    12 : {
+        method : "restore"
+    }
+    13 : {
+        method : "restore"
+    }
+    14 : {
+        method : "restore"
+    }
+    2 : {
+        method : "drawRect"
+        params : {
+            paint : {
+                color : "#FFFF0000"
+                filterLevel : "Low"
+                flags : "AntiAlias"
+                hinting : "Normal"
+                strokeCap : "Butt"
+                strokeJoin : "Miter"
+                strokeMiter : 4
+                strokeWidth : 0
+                styleName : "Fill"
+                textAlign : "Left"
+                textEncoding : "UTF-8"
+                textScaleX : 1
+                textSize : 12
+                textSkewX : 0
+            }
+            rect : {
+                bottom : 50
+                left : 0
+                right : 50
+                top : 0
+            }
+        }
+    }
+    3 : {
+        method : "drawBitmapRectToRect"
+        params : {
+            bitmap : {
+                config : "ARGB8888"
+                data : {
+                    base64 : "iVBORw0KGgoAAAANSUhEUgAAABMAAAAVCAYAAACkCdXRAAAAKElEQVQ4T2P8DwQMVAKMo4aRHJKjYUZykDGMhtlomOEIgdGkMcBJAwBg3lPCYiIiUQAAAABJRU5ErkJggg=="
+                    mimeType : "image/png"
+                }
+                height : 21
+                immutable : true
+                opaque : true
+                volatile : false
+                width : 19
+            }
+            dst : {
+                bottom : 71
+                left : 0
+                right : 19
+                top : 50
+            }
+            flags : 0
+            paint : {
+                color : "#FF000000"
+                filterLevel : "Low"
+                flags : "none"
+                hinting : "Normal"
+                strokeCap : "Butt"
+                strokeJoin : "Miter"
+                strokeMiter : 4
+                strokeWidth : 0
+                styleName : "Fill"
+                textAlign : "Left"
+                textEncoding : "UTF-8"
+                textScaleX : 1
+                textSize : 12
+                textSkewX : 0
+            }
+            src : {
+                bottom : 21
+                left : 0
+                right : 19
+                top : 0
+            }
+        }
+    }
+    4 : {
+        method : "save"
+        params : {
+        }
+    }
+    5 : {
+        method : "clipRect"
+        params : {
+            SkRegion::Op : "kIntersect_Op"
+            rect : {
+                bottom : 221
+                left : 0
+                right : 300
+                top : 71
+            }
+            softClipEdgeStyle : false
+        }
+    }
+    6 : {
+        method : "translate"
+        params : {
+            dx : 0
+            dy : 71
+        }
+    }
+    7 : {
+        method : "save"
+        params : {
+        }
+    }
+    8 : {
+        method : "clipRect"
+        params : {
+            SkRegion::Op : "kIntersect_Op"
+            rect : {
+                bottom : 10
+                left : 0
+                right : 10
+                top : 0
+            }
+            softClipEdgeStyle : false
+        }
+    }
+    9 : {
+        method : "saveLayer"
+        params : {
+            paint : {
+                color : "#7F000000"
+                filterLevel : "None"
+                flags : "none"
+                hinting : "Normal"
+                strokeCap : "Butt"
+                strokeJoin : "Miter"
+                strokeMiter : 4
+                strokeWidth : 0
+                styleName : "Fill"
+                textAlign : "Left"
+                textEncoding : "UTF-8"
+                textScaleX : 1
+                textSize : 12
+                textSkewX : 0
+            }
+            saveFlags : "kHasAlphaLayer_SaveFlag kFullColorLayer_SaveFlag kClipToLayer_SaveFlag "
+        }
+    }
+}
+

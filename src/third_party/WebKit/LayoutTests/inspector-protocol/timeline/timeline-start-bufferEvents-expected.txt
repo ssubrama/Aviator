@@ -1,0 +1,6 @@
+Recording started
+Recording stopped
+Events:
+    FunctionCall
+        TimeStamp
+

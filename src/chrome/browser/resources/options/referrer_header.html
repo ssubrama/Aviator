@@ -1,0 +1,27 @@
+
+<div id="referrer-header-page" class="page" hidden>
+  <h1 i18n-content="referrerHeaderPage"></h1>  
+  <div class="close-button"></div>
+  <div class="displaytable">
+    <!-- Referrer header tab contents -->
+    <section>
+      <h3 i18n-content="referrerHeader_tab_label"></h3>
+      <div>
+          <div class="radio">  
+              <label> 
+                  <input type="radio" name="referrerHeader" value="allow" class="referrer-radio">
+                  <span i18n-content="referrerHeader_always_send"></span>
+                </label>
+          </div> 
+         <div class="radio">
+              <label>		  
+                  <input type="radio" name="referrerHeader" value="block" class="referrer-radio">
+                  <span i18n-content="referrerHeader_never_send"></span>
+              </label>
+          </div>
+          <button id="ManageReferrerExceptionsButton" contentType="referrer"
+              i18n-content="ManageReferrerExceptionsButton"></button>		
+     </div>
+    </section>
+  </div>
+</div> 

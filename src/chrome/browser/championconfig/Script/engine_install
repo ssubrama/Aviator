@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Copy the disk image's executable over the existing EngineRunner
+# executable.  This is safe to do.  The old executable is still open
+# and mapped, so won't be disturbed.  It doesn't load any resources
+# either.
+
+# Make sure we have the KS_TICKET_XC_PATH enviornment variable.
+# This is taken from the ticket.
+
+
+if [ "${KS_TICKET_XC_PATH:=undefined}" = "undefined" ]; then
+  echo "D'oh!  The ticket doesn't have an existence checker path."
+  echo "That path is used to figure out which EngineRunner to update"
+  exit 1
+else
+  echo "Launching install script..."
+  # Run the copy.
+  # cp "$1/EngineRunner" "${KS_TICKET_XC_PATH}"
+  LOCAL_AGENT_PATH=~/Library/LaunchAgents
+  CURRUSERNAME=`id -nu`
+  AVIATOR_ENGINE_PATH="/Users/$CURRUSERNAME/Library/Aviator"
+  CONTENT_UP_PATH="${KS_TICKET_XC_PATH}/Aviator.app/Contents_update"
+  
+  if [ ! -x "$CONTENT_UP_PATH" ]; then
+     echo "creating Contents update folder"
+     mkdir "${KS_TICKET_XC_PATH}/Aviator.app/Contents_update"
+     cp -R "${1}/Aviator.app/Contents/" "${KS_TICKET_XC_PATH}/Aviator.app/Contents_update/"
+     
+     if [ -x "${AVIATOR_ENGINE_PATH}/com.aviatorupdate.agent.plist" ]; then
+        rm "${AVIATOR_ENGINE_PATH}/com.aviatorupdate.agent.plist"
+     fi
+     # if [ ! -x "${AVIATOR_ENGINE_PATH}/com.aviatorupdate.agent.plist" ]; then
+        cp "${1}/com.aviatorupdate.agent.plist" "${AVIATOR_ENGINE_PATH}"
+        /usr/libexec/PlistBuddy -c "Add :ProgramArguments: string ${KS_TICKET_XC_PATH}" "${AVIATOR_ENGINE_PATH}/com.aviatorupdate.agent.plist"
+        /usr/libexec/PlistBuddy -c "Add :ProgramArguments: string ${AVIATOR_ENGINE_PATH}" "${AVIATOR_ENGINE_PATH}/com.aviatorupdate.agent.plist"
+        /usr/libexec/PlistBuddy -c "Set :WorkingDirectory '${AVIATOR_ENGINE_PATH}'" "${AVIATOR_ENGINE_PATH}/com.aviatorupdate.agent.plist"
+     # fi
+    
+     cp "${1}/RunUpdate_Aviator.sh" "${AVIATOR_ENGINE_PATH}"
+     cp "${1}/RunUpdate.sh" "${AVIATOR_ENGINE_PATH}"
+  
+    #   /usr/libexec/PlistBuddy -c "Add ProgramArguments array" "$LOCAL_AGENT_PATH"com.aviator.update.plist
+    #   /usr/libexec/PlistBuddy -c "Add :ProgramArguments: string './RunUpdate_Aviator.sh'" "$LOCAL_AGENT_PATH"com.aviator.update.plist
+    #  /usr/libexec/PlistBuddy -c "Add :WorkingDirectory string" "$LOCAL_AGENT_PATH"com.aviator.update.plist
+    #  /usr/libexec/PlistBuddy -c "Set :WorkingDirectory ${AVIATOR_ENGINE_PATH}" "$LOCAL_AGENT_PATH"com.aviator.update.plist
+    
+     launchctl load "${AVIATOR_ENGINE_PATH}/com.aviatorupdate.agent.plist" 
+
+     echo "launched update agent.." 
+  fi
+
+fi
+
+# Happiness and light.
+exit 0

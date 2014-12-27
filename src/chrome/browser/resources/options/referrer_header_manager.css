@@ -1,0 +1,161 @@
+/*
+Copyright (c) 2011 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+*/
+
+.exception-pattern {
+  -webkit-box-flex: 1;
+  -webkit-margin-end: 10px;
+  -webkit-margin-start: 14px;
+}
+
+.exception-setting {
+  display: inline-block;
+  width: 120px;
+}
+
+select.exception-setting {
+  vertical-align: middle;
+}
+
+#exception-column-headers {
+  -webkit-margin-start: 17px;
+  display: -webkit-box;
+  margin-top: 17px;
+}
+
+#exception-column-headers > div {
+  font-weight: bold;
+}
+
+#exception-pattern-column {
+  -webkit-box-flex: 1;
+}
+
+#exception-behavior-column {
+  width: 145px;
+}
+
+.otr-explanation {
+  font-style: italic;
+}
+
+#referrerheader-manager list {
+  margin-bottom: 10px;
+  margin-top: 4px;
+}
+/*
+#disable-plugins-container {
+  margin: 7px 0px;
+}
+*/
+div[role="listitem"][managedby] {
+  color: #666;
+  font-style: italic;
+  position: relative;
+}
+
+.settings-list div[role="listitem"][managedby="policy"],
+.settings-list div[role="listitem"][managedby="extension"] {
+  background: -webkit-linear-gradient(#fff1b5, #fae692);
+  border-top: 0;
+  border-bottom: 1px solid #c9bd8d;
+}
+.buttons{
+	float: right;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	background: #EBEBEB -webkit-linear-gradient(#FEFEFE, #F8F8F8 40%, #E9E9E9);
+	border: 1px solid #999;
+	color: #222;
+	margin-left: 15px;
+	padding: 2px 0px 0 14px;
+	width: 47px;
+	height: 20px;
+	position: relative;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+#export{
+	float:right;
+	margin-top:5px;
+}
+.buttons input{
+   width:1px;
+   height:1px;
+   position:absolute;
+   left:0;
+   top:0;
+   cursor:pointer;
+}
+
+
+list div[role="listitem"][managedby="policy"] .close-button 
+{
+  /* Below are changed from aviator:// to Champion:// - Champion */  
+  background-image: url("aviator://theme/IDR_MANAGED");
+  /* Comment starts here - Champion
+  background-image: url("aviator://theme/IDR_MANAGED");
+  Comment ends here - Champion */
+  opacity: 1;
+}
+/*
+list div[role="listitem"][managedby="extension"] .close-button 
+{
+   /* Below are changed from aviator:// to aviator:// - Champion */ 
+  /*background-image: url("aviator://theme/IDR_EXTENSIONS_SECTION_SMALL");*/
+  /* Comment starts here - Champion 
+  background-image: url("aviator://theme/IDR_EXTENSIONS_SECTION_SMALL");
+  Comment ends here - Champion */
+ /* opacity: 1;
+}*/
+
+/*********** new css for chrome champion **********/
+#referrer-header-manager.page{
+	padding: 20px;
+	max-width: 600px;
+	max-height:400px !important;
+	overflow:auto;
+}
+
+#referrer-header-manager.page h1{
+	padding: 5px 17px 10px 0px;
+}
+
+#referrer-header-manager.page #exception-column-headers{
+	margin: 0px 0px 5px 0px;
+}
+
+#fileUploadButtons{
+	float: right;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	background: #EBEBEB -webkit-linear-gradient(#FEFEFE, #F8F8F8 40%, #E9E9E9);
+	border: 1px solid #999;
+	color: #222;
+	margin-left: 15px;
+	padding: 2px 0px 0 14px;
+	width: 47px;
+	height: 20px;
+	position: relative;
+	border-radius: 5px;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+#fileUploadButtons input{
+   width: 62px !important;
+   height: 22px !important;
+   opacity: 0 !important;
+   position:absolute;
+   left:0;
+   top:0;
+   cursor:pointer;
+}
+
+#helpIconImport{
+	float: right;
+	position: relative;
+	margin-top: 9px;
+} 
+
+

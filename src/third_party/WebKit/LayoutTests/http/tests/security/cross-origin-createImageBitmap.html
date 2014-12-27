@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script src="/js-test-resources/js-test.js"></script>
+    <script>
+        description("The image bitmap factories should throw exceptions on cross-origin access.");
+
+        window.jsTestIsAsync = true;
+
+        var img = document.createElement('img');
+        var vid = document.createElement('video');
+
+        document.body.appendChild(img);
+        img.src = 'http://localhost:8080/security/resources/abe.png';
+        img.addEventListener('load', function () {
+            shouldThrow('createImageBitmap(img, 0, 0, 10, 10)', '"SecurityError: Failed to execute \'createImageBitmap\' on \'Window\': Cross-origin access to the source image is denied."');
+
+            vid.src = 'http://localhost:8080/media/resources/load-video.php?name=test.ogv&amp;type=video/ogv';
+            vid.addEventListener('playing', function () {
+                shouldThrow('createImageBitmap(vid, 0, 0, 10, 10)', '"SecurityError: Failed to execute \'createImageBitmap\' on \'Window\': Cross-origin access to the source video is denied."');
+                finishJSTest();
+            });
+            document.body.appendChild(vid);
+            vid.play();
+        });
+    </script>
+</body>
+</html>

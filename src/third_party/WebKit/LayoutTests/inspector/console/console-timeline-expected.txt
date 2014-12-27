@@ -1,0 +1,112 @@
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'one' finished.
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'two' started.
+CONSOLE DEBUG: Timeline 'two' started.
+CONSOLE DEBUG: Timeline 'two' finished.
+CONSOLE DEBUG: Timeline 'one' finished.
+CONSOLE DEBUG: Timeline 'two' finished.
+CONSOLE DEBUG: Timeline 'one' finished.
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'two' started.
+CONSOLE DEBUG: Timeline 'two' finished.
+CONSOLE DEBUG: Timeline 'one' finished.
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'two' was not started.
+CONSOLE DEBUG: Timeline 'one' finished.
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'one' finished.
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'two' started.
+CONSOLE DEBUG: Timeline 'one' terminated.
+CONSOLE DEBUG: Timeline 'two' terminated.
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'two' started.
+CONSOLE DEBUG: Timeline 'one' terminated.
+CONSOLE DEBUG: Timeline 'two' terminated.
+CONSOLE DEBUG: Timeline 'one' started.
+CONSOLE DEBUG: Timeline 'two' started.
+CONSOLE DEBUG: Timeline 'one' terminated.
+CONSOLE DEBUG: Timeline 'two' terminated.
+Tests console.timeline and timelineEnd commands.
+
+
+Running: testStartStopTimeline
+Timeline started from console.
+Timeline 'one' started.
+timestamp 1
+Timeline 'one' finished.
+Timeline stopped from console.
+
+Running: testStartStopMultiple
+Timeline started from console.
+Timeline 'one' started.
+timestamp 1
+Timeline 'one' started.
+Timeline 'two' started.
+Timeline 'two' started.
+Timeline 'two' finished.
+timestamp 2
+Timeline 'one' finished.
+timestamp 3
+Timeline 'two' finished.
+timestamp 4
+Timeline 'one' finished.
+Timeline stopped from console.
+
+Running: testStartMultipleStopInsideEvals
+Timeline started from console.
+Timeline 'one' started.
+timestamp 1
+Timeline 'two' started.
+timestamp 2
+timestamp 3
+Timeline 'two' finished.
+timestamp 4
+timestamp 5
+Timeline 'one' finished.
+Timeline stopped from console.
+
+Running: testStopUnknown
+Timeline started from console.
+Timeline 'one' started.
+timestamp 1
+timestamp 2
+Timeline 'one' finished.
+Timeline stopped from console.
+
+Running: testStartFromPanel
+Timeline started from panel
+timestamp 0
+Timeline 'one' started.
+timestamp 1
+Timeline 'one' finished.
+timestamp 2
+Timeline stopped from panel
+
+Running: testStopFromPanel
+Timeline started from console.
+Timeline 'one' started.
+timestamp 1
+Timeline 'two' started.
+timestamp 2
+Timeline stopped from panel
+
+Running: testRacyStart
+Timeline started from console.
+Timeline 'one' started.
+timestamp 1
+Timeline 'two' started.
+timestamp 2
+Timeline stopped from panel
+
+Running: testRacyStart2
+Timeline started from panel
+timestamp 0
+Timeline 'one' started.
+timestamp 1
+Timeline 'two' started.
+timestamp 2
+Timeline stopped from panel
+

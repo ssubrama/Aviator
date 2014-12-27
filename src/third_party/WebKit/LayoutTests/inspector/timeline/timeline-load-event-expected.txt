@@ -1,0 +1,42 @@
+Tests the load event.
+
+Page reloaded.
+Model records:
+MarkDOMContent Properties:
+{
+    data : {
+        isMainFrame : true
+    }
+    frameId : <string>
+    startTime : <number>
+    type : "MarkDOMContent"
+}
+MarkLoad Properties:
+{
+    data : {
+        isMainFrame : true
+    }
+    frameId : <string>
+    startTime : <number>
+    type : "MarkLoad"
+}
+Timestamp records:
+MarkDOMContent Properties:
+{
+    data : {
+        isMainFrame : true
+    }
+    frameId : <string>
+    startTime : <number>
+    type : "MarkDOMContent"
+}
+MarkLoad Properties:
+{
+    data : {
+        isMainFrame : true
+    }
+    frameId : <string>
+    startTime : <number>
+    type : "MarkLoad"
+}
+

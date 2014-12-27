@@ -1,0 +1,23 @@
+#alternateBrowser{
+	padding: 20px;
+}
+#alternateBrowser h1{
+	padding: 0;
+}
+#alternateBrowser #blocked-urls-popup.blocked-urls{ 
+	padding: 4px 0;
+}
+#alternateBrowser #blocked-urls-popup .alternate-close-button{
+	background: none !important;
+	margin-top: 10px;
+	text-align: center;
+}
+#select_Ctn{
+	padding: 5px 0;
+}
+#alternateBrowser .overlay .page > .alternate-close-button{
+	right: auto;
+	top: auto;
+	position: relative;
+	width: auto;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>mapping dynamic lang to -webkit-locale</title>
+<script src="../../resources/js-test.js"></script>
+<script>
+function localeOfNode(id) {
+    var element = document.getElementById(id);
+    return window.getComputedStyle(element).webkitLocale;
+}
+
+function runTest() {
+    description('This tests mapping of lang/xml:lang to -webkit-locale with dynamic attribute changes. WebKit bug 76364');
+    var x1 = document.getElementById("x1");
+    var x2 = document.getElementById("x2");
+    var x3 = document.getElementById("x3");
+
+    shouldBeEqualToString("localeOfNode('x1')", "ko");
+    shouldBeEqualToString("localeOfNode('x2')", "ko");
+    shouldBeEqualToString("localeOfNode('x3')", "ar");
+
+    x1.lang = "ja";
+    shouldBeEqualToString("localeOfNode('x1')", "ja");
+    shouldBeEqualToString("localeOfNode('x2')", "ja");
+    shouldBeEqualToString("localeOfNode('x3')", "ar");
+
+    x3.lang = "";
+    shouldBeEqualToString("localeOfNode('x3')", "auto");
+
+    x3.removeAttribute("lang");
+    shouldBeEqualToString("localeOfNode('x3')", "ja");
+
+    // If we include js-test-post.js directly, the "TEST COMPLETE" output comes out of order.
+    wasPostTestScriptParsed = true;
+    finishJSTest();
+}
+</script>
+</head>
+<body onload="runTest();">
+<div lang="ko" id="x1"><div id="x2"/><div id="x3" lang="ar"/></div>
+</body>
+</html>

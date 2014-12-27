@@ -1,0 +1,41 @@
+Tests the Timeline events for WebSocket
+
+WebSocketCreate Properties:
+{
+    data : {
+        identifier : <number>
+        url : ws://127.0.0.1:8880/simple
+    }
+    frameId : <string>
+    stackTrace : <object>
+    startTime : <number>
+    type : "WebSocketCreate"
+}
+WebSocketSendHandshakeRequest Properties:
+{
+    data : {
+        identifier : <number>
+    }
+    frameId : <string>
+    startTime : <number>
+    type : "WebSocketSendHandshakeRequest"
+}
+WebSocketReceiveHandshakeResponse Properties:
+{
+    data : {
+        identifier : <number>
+    }
+    frameId : <string>
+    startTime : <number>
+    type : "WebSocketReceiveHandshakeResponse"
+}
+WebSocketDestroy Properties:
+{
+    data : {
+        identifier : <number>
+    }
+    frameId : <string>
+    startTime : <number>
+    type : "WebSocketDestroy"
+}
+

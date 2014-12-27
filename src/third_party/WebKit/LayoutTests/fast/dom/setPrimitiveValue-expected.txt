@@ -1,0 +1,2 @@
+Test CSSPrimitiveValue setters.
+setFloatValue Failed to execute 'setFloatValue' on 'CSSPrimitiveValue': CSSPrimitiveValue objects are read-only.

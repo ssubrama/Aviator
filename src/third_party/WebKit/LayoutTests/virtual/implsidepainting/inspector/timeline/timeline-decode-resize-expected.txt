@@ -1,0 +1,94 @@
+Tests the Timeline API instrumentation of a DecodeImage and ResizeImage events
+
+
+DecodeImage Properties:
+{
+    data : {
+        backendNodeId : <number>
+        url : .../inspector/timeline/resources/test.bmp
+    }
+    endTime : <number>
+    startTime : <number>
+    thread : <string>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    data : {
+        backendNodeId : <number>
+        url : .../inspector/timeline/resources/test.gif
+    }
+    endTime : <number>
+    startTime : <number>
+    thread : <string>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        imageType : "ICO"
+        url : .../inspector/timeline/resources/test.ico
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "DecodeImage"
+}
+ResizeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        cached : true
+        url : .../inspector/timeline/resources/test.ico
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "ResizeImage"
+}
+DecodeImage Properties:
+{
+    data : {
+        backendNodeId : <number>
+        url : .../inspector/timeline/resources/test.jpg
+    }
+    endTime : <number>
+    startTime : <number>
+    thread : <string>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    data : {
+        backendNodeId : <number>
+        url : .../inspector/timeline/resources/test.png
+    }
+    endTime : <number>
+    startTime : <number>
+    thread : <string>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    data : {
+        backendNodeId : <number>
+        url : .../inspector/timeline/resources/test.webp
+    }
+    endTime : <number>
+    startTime : <number>
+    thread : <string>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    data : {
+        backendNodeId : <number>
+        url : .../inspector/timeline/resources/big.png
+    }
+    endTime : <number>
+    startTime : <number>
+    thread : <string>
+    type : "DecodeImage"
+}
+

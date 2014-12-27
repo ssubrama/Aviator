@@ -1,0 +1,18 @@
+Tests generateKey() with bad HMAC parameters.
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+error is: SyntaxError: HmacKeyGenParams: length: Outside of numeric range
+error is: NotSupportedError: HmacKeyGenParams: hash: Algorithm: Unrecognized name
+error is: SyntaxError: HmacKeyGenParams: length: Outside of numeric range
+error is: SyntaxError: HmacKeyGenParams: length: Is not a number
+error is: SyntaxError: HmacKeyGenParams: length: Outside of numeric range
+error is: SyntaxError: HmacKeyGenParams: length: Outside of numeric range
+error is: SyntaxError: HmacKeyGenParams: length: Is not a number
+error is: SyntaxError: HmacKeyGenParams: length: Is not a number
+error is: DataError: Invalid key length: it is either zero or not a multiple of 8 bits
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

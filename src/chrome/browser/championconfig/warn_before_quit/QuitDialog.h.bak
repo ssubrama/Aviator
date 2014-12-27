@@ -1,0 +1,64 @@
+//
+//  DialogBoxController.h
+//  D
+//
+//  Created by Robin Mills on 4/27/10.
+//  Copyright 2010 RMSC, San Jose, CA, USA. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
+#import "DialogBoxController.h"
+
+//extern "C" NSString* nIconPathChanged ;
+// extern NSString* nIconPathChanged ;
+extern bool bQuit;
+
+
+@interface QuitDialog : NSWindowController
+	<NSWindowDelegate>
+{
+	// outlets
+	IBOutlet NSImageView*   imageView ;
+	
+	
+	// properties
+	DialogBoxController*	modalDialog		;
+	//NSNotificationCenter*	nc				;
+	NSImageView*			dockImageView	;
+	NSString*				imagePath		;
+	
+	
+    IBOutlet NSButton*   butOK ;
+    IBOutlet NSButton*   butCANCEL ;
+    @public
+    IBOutlet NSButton*   butDisable ;
+    
+	
+}
+// actions
+- (IBAction) showModal:(id)sender;
+
+// - (IBAction) imageFile:(id)sender;
+
+//- (IBAction) closeButton:(id)sender;
+	
+- (IBAction) okButtonAction:(id)sender;
+	
+- (IBAction) cancelButtonAction:(id)sender;  	
+
+
+
+// property getters/setters
+
+- (void) setImagePath:(NSString*)aImagePath;
+
+// property getters/setters
+
+// methods
+
++(QuitDialog*)sharedMySingleton;
+
+
+@end
+

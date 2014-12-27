@@ -1,0 +1,43 @@
+<html>
+<head>
+<script src="../http/tests/inspector/inspector-test.js"></script>
+<script src="tracing-test.js"></script>
+
+<script>
+function test()
+{
+    WebInspector.inspectorView.showPanel("timeline");
+    InspectorTest.invokeWithTracing("-*," + WebInspector.TracingModel.DevToolsMetadataEventCategory, "(function(callback) { callback(); })", processTracingEvents);
+
+    function processTracingEvents()
+    {
+        InspectorTest.tracingModel.sortedProcesses().forEach(function(process) {
+            process.sortedThreads().forEach(function(thread) {
+                thread.events().forEach(processEvent);
+            });
+        });
+        InspectorTest.completeTest();
+    }
+
+    function processEvent(event)
+    {
+        var metadataEvents = [
+            WebInspector.TracingTimelineModel.RecordType.SetLayerTreeId,
+            WebInspector.TracingTimelineModel.RecordType.TracingStartedInPage
+        ];
+
+        if (event.category !== WebInspector.TracingModel.DevToolsMetadataEventCategory || metadataEvents.indexOf(event.name) < 0)
+            return;
+
+        InspectorTest.assertEquals(InspectorTest.tracingModel.sessionId(), event.args["sessionId"]);
+        InspectorTest.addResult("Got DevTools metadata event: " + event.name);
+    }
+}
+</script>
+
+<body onload="runTestAfterDisplay()">
+<p style="-webkit-transform: translateZ(10px)"> <!-- Force compositing so we have SetLayerTreeHostId event as well -->
+Tests that Tracing agent returns a session id upon a start that is matching one issued in trace events.
+</p>
+</body>
+</html>

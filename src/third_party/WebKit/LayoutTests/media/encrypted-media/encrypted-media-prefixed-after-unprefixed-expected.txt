@@ -1,0 +1,7 @@
+Call prefixed EME API after unprefixed EME API.
+
+EVENT(loadstart)
+This is a testharness.js-based test.
+PASS Call prefixed EME API after unprefixed EME API. 
+Harness: the test ran to completion.
+

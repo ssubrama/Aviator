@@ -1,0 +1,134 @@
+Tests the Timeline events for Timers
+
+TimerInstall Properties:
+{
+    data : {
+        singleShot : true
+        timeout : 10
+        timerId : <number>
+    }
+    frameId : <string>
+    stackTrace : <object>
+    startTime : <number>
+    type : "TimerInstall"
+}
+TimerInstall Properties:
+{
+    data : {
+        singleShot : false
+        timeout : 20
+        timerId : <number>
+    }
+    frameId : <string>
+    stackTrace : <object>
+    startTime : <number>
+    type : "TimerInstall"
+}
+TimerFire Properties:
+{
+    children : <object>
+    data : {
+        timerId : <number>
+    }
+    endTime : <number>
+    frameId : <string>
+    startTime : <number>
+    type : "TimerFire"
+}
+TimerFire Properties:
+{
+    children : <object>
+    data : {
+        timerId : <number>
+    }
+    endTime : <number>
+    frameId : <string>
+    startTime : <number>
+    type : "TimerFire"
+}
+TimerFire Properties:
+{
+    children : <object>
+    data : {
+        timerId : <number>
+    }
+    endTime : <number>
+    frameId : <string>
+    startTime : <number>
+    type : "TimerFire"
+}
+TimerRemove Properties:
+{
+    data : {
+        timerId : <number>
+    }
+    frameId : <string>
+    stackTrace : <object>
+    startTime : <number>
+    type : "TimerRemove"
+}
+FunctionCall Properties:
+{
+    children : <object>
+    data : {
+        scriptId : <string>
+        scriptLine : <number>
+        scriptName : <string>
+    }
+    endTime : <number>
+    frameId : <string>
+    startTime : <number>
+    type : "FunctionCall"
+}
+FunctionCall Properties:
+{
+    children : <object>
+    data : {
+        scriptId : <string>
+        scriptLine : <number>
+        scriptName : <string>
+    }
+    endTime : <number>
+    frameId : <string>
+    startTime : <number>
+    type : "FunctionCall"
+}
+FunctionCall Properties:
+{
+    children : <object>
+    data : {
+        scriptId : <string>
+        scriptLine : <number>
+        scriptName : <string>
+    }
+    endTime : <number>
+    frameId : <string>
+    startTime : <number>
+    type : "FunctionCall"
+}
+FunctionCall Properties:
+{
+    children : <object>
+    data : {
+        scriptId : <string>
+        scriptLine : <number>
+        scriptName : <string>
+    }
+    endTime : <number>
+    frameId : <string>
+    startTime : <number>
+    type : "FunctionCall"
+}
+EvaluateScript Properties:
+{
+    children : <object>
+    data : {
+        lineNumber : <number>
+        url : 
+    }
+    endTime : <number>
+    frameId : <string>
+    startTime : <number>
+    type : "EvaluateScript"
+}
+

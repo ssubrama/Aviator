@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<div style="height:200px;width:600px;overflow:scroll">
+  <div style="position:relative">
+    <div style="height:400px;margin-bottom:-400px;position:relative">
+      <div id="chip" style="width:50px;height:50px;position:absolute;background:lightblue;margin:0"></div>
+    </div>
+  </div>
+</div>
+
+<pre id="output" style="display:none"></pre>
+<script>
+// Test that moving a RenderLayer that is squashed relative to its squashing container repaints correctly.
+// In particular, the repaint rect needs to be recorded in the correct position relative to the squashing GraphicsLayer.
+if (window.testRunner) {
+    testRunner.dumpAsText();
+    testRunner.waitUntilDone();
+}
+
+if (window.internals) {
+    window.internals.settings.setLayerSquashingEnabled(true);
+    window.internals.startTrackingRepaints(document);
+}
+var updateFunction = function()
+{
+    document.getElementById('chip').style.left = "400px";
+
+    if (window.internals) {
+        var data = window.internals.layerTreeAsText(document, internals.LAYER_TREE_INCLUDES_REPAINT_RECTS);
+        window.internals.stopTrackingRepaints(document);
+        var output = document.getElementById('output');
+        output.textContent = data;
+
+        output.style.display = "block";
+    }
+    if (window.testRunner)
+        testRunner.notifyDone();
+}
+
+// Wait two frames before updating the chip's style, so that the document is painted and squashed first.
+window.requestAnimationFrame(function() {
+    window.requestAnimationFrame(updateFunction);
+});
+
+
+</script>

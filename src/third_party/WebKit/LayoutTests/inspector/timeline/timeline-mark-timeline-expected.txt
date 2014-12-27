@@ -1,0 +1,14 @@
+CONSOLE WARNING: console.markTimeline is deprecated. Please use the console.timeStamp instead.
+Tests the Timeline API mark feature
+
+TimeStamp Properties:
+{
+    data : {
+        message : "MARK TIMELINE"
+    }
+    frameId : <string>
+    stackTrace : <object>
+    startTime : <number>
+    type : "TimeStamp"
+}
+

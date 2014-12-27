@@ -1,0 +1,86 @@
+Test
+Font for '12px monospace':
+font-style: normal
+font-variant: normal
+font-weight: normal
+font-size: 12px
+line-height: normal
+font-family: monospace
+
+Font for '12px/24px serif':
+font-style: normal
+font-variant: normal
+font-weight: normal
+font-size: 12px
+line-height: 24px
+font-family: serif
+
+Font for 'normal 12px serif':
+font-style: normal
+font-variant: normal
+font-weight: normal
+font-size: 12px
+line-height: normal
+font-family: serif
+
+Font for 'normal normal 12px serif':
+font-style: normal
+font-variant: normal
+font-weight: normal
+font-size: 12px
+line-height: normal
+font-family: serif
+
+Font for 'normal normal normal 12px serif':
+font-style: normal
+font-variant: normal
+font-weight: normal
+font-size: 12px
+line-height: normal
+font-family: serif
+
+Font for 'italic small-caps 12px/24px serif':
+font-style: italic
+font-variant: small-caps
+font-weight: normal
+font-size: 12px
+line-height: 24px
+font-family: serif
+
+Font for 'italic bold 12px/24px serif':
+font-style: italic
+font-weight: bold
+font-variant: normal
+font-size: 12px
+line-height: 24px
+font-family: serif
+
+Font for 'small-caps bold 14px/28px Arial, sans-serif':
+font-variant: small-caps
+font-weight: bold
+font-style: normal
+font-size: 14px
+line-height: 28px
+font-family: Arial, sans-serif
+
+Font for 'italic small-caps bold 14px/28px Arial, sans-serif':
+font-style: italic
+font-variant: small-caps
+font-weight: bold
+font-size: 14px
+line-height: 28px
+font-family: Arial, sans-serif
+
+Font for 'italic small-caps bold 12px/24px':
+
+Font for 'italic small-caps bold 12px':
+
+Font for 'italic small-caps bold /12px serif':
+
+Font for 'italic small-caps small-caps 12px serif':
+
+Font for 'italic italic small-caps bold 12px serif':
+
+Font for '12px/italic serif':
+
+

@@ -1,0 +1,41 @@
+layer at (0,0) size 800x600
+  RenderView at (0,0) size 800x600
+layer at (0,0) size 800x66
+  RenderBlock {HTML} at (0,0) size 800x66
+    RenderBody {BODY} at (8,8) size 784x50
+      RenderTextControl {INPUT} at (2,2) size 144x21 [bgcolor=#FFFFFF] [border: (2px inset #EEEEEE)]
+        RenderFlexibleBox {DIV} at (2,3) size 140x15
+          RenderBlock {DIV} at (0,0) size 122.14x15
+          RenderDetailsMarker {DIV} at (122.14,0.83) size 17.86x13.33: down
+      RenderText {#text} at (148,3) size 4x17
+        text run at (148,3) width 4: " "
+      RenderTextControl {INPUT} at (154,2) size 144x21 [bgcolor=#FFFFFF] [border: (2px inset #EEEEEE)]
+        RenderFlexibleBox {DIV} at (2,3) size 140x15
+          RenderBlock {DIV} at (0,0) size 122.14x15
+          RenderDetailsMarker {DIV} at (122.14,0.83) size 17.86x13.33: down
+      RenderText {#text} at (300,3) size 4x17
+        text run at (300,3) width 4: " "
+      RenderBR {BR} at (304,3) size 0x17
+      RenderTextControl {INPUT} at (2,27) size 144x21 [color=#545454] [bgcolor=#EBEBE4] [border: (2px inset #EEEEEE)]
+        RenderFlexibleBox {DIV} at (2,3) size 140x15
+          RenderBlock {DIV} at (0,0) size 122.14x15
+      RenderText {#text} at (148,28) size 4x17
+        text run at (148,28) width 4: " "
+      RenderTextControl {INPUT} at (154,27) size 144x21 [bgcolor=#FFFFFF] [border: (2px inset #EEEEEE)]
+        RenderFlexibleBox {DIV} at (2,3) size 140x15
+          RenderBlock {DIV} at (0,0) size 122.14x15
+      RenderText {#text} at (0,0) size 0x0
+      RenderText {#text} at (0,0) size 0x0
+layer at (12,13) size 122x15
+  RenderBlock {DIV} at (0,0) size 122.14x15
+layer at (164,13) size 122x15
+  RenderBlock {DIV} at (0,0) size 122.14x15
+layer at (12,38) size 122x15
+  RenderBlock {DIV} at (0,0) size 122.14x15
+layer at (164,38) size 122x15
+  RenderBlock {DIV} at (0,0) size 122.14x15
+hidden layer at (134,39) size 18x13 transparent
+  RenderDetailsMarker {DIV} at (122.14,0.83) size 17.86x13.33: down
+hidden layer at (286,39) size 18x13 transparent
+  RenderDetailsMarker {DIV} at (122.14,0.83) size 17.86x13.33: down
+caret: position 0 of child 0 {DIV} of child 0 {DIV} of child 0 {DIV} of {#document-fragment} of child 3 {INPUT} of body

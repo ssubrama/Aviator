@@ -1,0 +1,31 @@
+Tests list of user metrics codes and invocations.
+
+recordActionTaken:
+{
+    AuditsStarted : 7
+    ConsoleEvaluated : 8
+    ProfilesCPUProfileTaken : 5
+    ProfilesHeapProfileTaken : 6
+    ScriptsBreakpointSet : 3
+    TimelineStarted : 4
+    WindowDocked : 1
+    WindowUndocked : 2
+}
+Action taken: WindowDocked
+Action taken: WindowUndocked
+
+recordPanelShown:
+{
+    audits : 7
+    console : 8
+    elements : 1
+    network : 3
+    profiles : 6
+    resources : 2
+    scripts : 4
+    timeline : 5
+}
+Panel shown: profiles
+Panel shown: timeline
+Panel shown: audits
+

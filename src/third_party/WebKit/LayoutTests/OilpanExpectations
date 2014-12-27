@@ -1,0 +1,53 @@
+# This file is used by the Oilpan bots (and anyone building in that config)
+# to track Oilpan-specific failures.
+
+# With Oilpan, the parent pointer in the CSSRule hierarchy is
+# strong. This is the intended behavior.
+crbug.com/345630 fast/dom/StyleSheet/gc-parent-rule.html [ Failure ]
+crbug.com/345630 fast/dom/StyleSheet/gc-parent-stylesheet.html [ Failure ]
+crbug.com/345655 fast/dom/StyleSheet/detached-parent-rule-without-wrapper.html [ Failure ]
+crbug.com/345655 fast/dom/StyleSheet/detached-stylesheet-without-wrapper.html [ Failure ]
+
+# With Oilpan, parent pointers in the DOM tree do not
+# mysteriously disappear. This is the intended behavior.
+crbug.com/356658 fast/dom/gc-3.html [ Failure ]
+crbug.com/356658 fast/dom/gc-5.html [ Failure ]
+crbug.com/356658 fast/dom/gc-12.html [ Failure ]
+crbug.com/356658 fast/dom/gc-dom-tree-lifetime.html [ Failure ]
+
+crbug.com/342574 [ Mac Debug ] fast/css-generated-content/crash-selection-editing-removes-pseudo.html [ Crash Timeout ]
+
+crbug.com/350316 [ Linux Win Debug ] http/tests/eventsource/workers/eventsource-simple.html [ Crash ]
+crbug.com/350316 [ Mac Debug ] http/tests/eventsource/workers/eventsource-simple.html [ Timeout ]
+
+# While moving object onto the oilpan heap the timing changed such that the order in which
+# scrollbars are added to an iframe has changed.
+crbug.com/345655 compositing/iframes/scrolling-iframe.html [ Failure ]
+crbug.com/345655 virtual/softwarecompositing/iframes/scrolling-iframe.html [ Failure ]
+
+# These tests pass but they throw a different exception than before. We need to figure out if
+# that is OK.
+crbug.com/XYZ fast/dom/custom/registration-context-delete-during-attribute-changed-retrieval.html [ Failure ]
+crbug.com/XYZ fast/dom/custom/registration-context-delete-during-register-created-retrieval.html [ Failure ]
+crbug.com/XYZ fast/dom/custom/registration-context-delete-then-register.html [ Failure ]
+
+# These tests crashes due to an assertion in debug, but is consistently timing in mac oilpan debug instead.
+crbug.com/366387 [ Mac Debug ] svg/as-object/deep-nested-embedded-svg-size-changes-no-layout-triggers-1.html [ Timeout ]
+crbug.com/366387 [ Mac Debug ] svg/as-object/deep-nested-embedded-svg-size-changes-no-layout-triggers-2.html [ Timeout ]
+
+# These tests started failing (on mac only) with blink r173290
+crbug.com/370586 [ Mac ] media/encrypted-media/encrypted-media-lifetime-mediakeys.html [ Failure ]
+crbug.com/370586 [ Mac ] media/encrypted-media/encrypted-media-lifetime-mediakeysession-reference.html [ Failure ]
+
+# This test is flaky in debug without oilpan, but fails much more with oilpan.
+crbug.com/354785 svg/as-background-image/animated-svg-animation-control.html [ ImageOnlyFailure Pass ]
+
+Bug(alph) [ Win ] virtual/windows-directwrite/fast/text/decorations-with-text-combine.html [ NeedsRebaseline ]
+Bug(alph) [ Win ] virtual/windows-directwrite/fast/text/international/text-combine-image-test.html [ NeedsRebaseline ]
+Bug(alph) [ Win ] virtual/windows-directwrite/fast/text/international/vertical-text-glyph-test.html [ NeedsRebaseline ]
+Bug(alph) [ Win ] virtual/windows-directwrite/fast/text/justify-ideograph-vertical.html [ NeedsRebaseline ]
+Bug(alph) [ Win ] virtual/windows-directwrite/fast/text/orientation-sideways.html [ NeedsRebaseline ]
+
+crbug.com/377567 [ Debug ] editing/selection/extend-selection-character.html [ Timeout Pass ]
+crbug.com/377567 [ Debug ] editing/selection/programmatic-selection-on-mac-is-directionless.html [ Timeout Pass ]
+crbug.com/377567 [ Debug ] fast/css/large-list-of-rules-crash.html [ Timeout Pass ]

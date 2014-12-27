@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MediaKeys</title>
+        <script src="../w3c-media-utils.js"></script>
+        <script src="../../resources/testharness.js"></script>
+        <script src="../../resources/testharnessreport.js"></script>
+    </head>
+    <body>
+        <video id="testVideo"></video>
+        <div id="log"></div>
+        <p>This tests setting MediaKeys on a video object.</p>
+        <script>
+            async_test(function(test)
+            {
+                var mediaKeys;
+                var mediaKeys2;
+                var video = document.getElementById("testVideo");
+                assert_not_equals(video, null);
+
+                // Test MediaKeys assignment.
+                assert_equals(video.mediaKeys, null);
+                assert_equals(typeof video.setMediaKeys, 'function');
+
+                // Try setting mediaKeys to null.
+                video.setMediaKeys(null);
+                assert_equals(video.mediaKeys, null);
+
+                // Try setting mediaKeys to the wrong type of object.
+                assert_throws(new TypeError(),
+                              function () { video.setMediaKeys(new Date()) });
+
+                // Create a MediaKeys object and assign it to video.
+                mediaKeys = new MediaKeys("org.w3.clearkey");
+                assert_not_equals(mediaKeys, null);
+                assert_equals(mediaKeys.keySystem, 'org.w3.clearkey');
+                video.setMediaKeys(mediaKeys);
+                assert_not_equals(video.mediaKeys, null);
+                assert_true(video.mediaKeys === mediaKeys);
+
+                // Set it a second time.
+                video.setMediaKeys(mediaKeys);
+                assert_not_equals(video.mediaKeys, null);
+                assert_true(video.mediaKeys === mediaKeys);
+
+                // Create a second MediaKeys.
+                mediaKeys2 = new MediaKeys("org.w3.clearkey");
+                assert_not_equals(mediaKeys, null);
+                assert_not_equals(mediaKeys2, null);
+                assert_equals(mediaKeys.keySystem, 'org.w3.clearkey');
+                assert_equals(mediaKeys2.keySystem, 'org.w3.clearkey');
+
+                // Assign the second MediaKeys to video.
+                video.setMediaKeys(mediaKeys2);
+                assert_not_equals(video.mediaKeys, null);
+                assert_not_equals(video.mediaKeys, mediaKeys);
+                assert_true(video.mediaKeys === mediaKeys2);
+
+                // Set it back to first MediaKeys.
+                video.setMediaKeys(mediaKeys);
+                assert_true(video.mediaKeys === mediaKeys);
+                assert_not_equals(video.mediaKeys, mediaKeys2);
+
+                // Set mediaKeys to null.
+                video.setMediaKeys(null);
+                assert_equals(video.mediaKeys, null);
+
+                // Set it to null a second time.
+                video.setMediaKeys(null);
+                assert_equals(video.mediaKeys, null);
+
+                // Set it back to first MediaKeys again.
+                video.setMediaKeys(mediaKeys);
+                assert_true(video.mediaKeys === mediaKeys);
+                assert_not_equals(video.mediaKeys, mediaKeys2);
+                test.done();
+            }, "Setting MediaKeys on a video object.");
+        </script>
+    </body>
+</html>

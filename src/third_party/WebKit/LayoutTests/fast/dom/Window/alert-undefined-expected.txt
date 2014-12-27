@@ -1,0 +1,10 @@
+ALERT: undefined
+ALERT: null
+CONFIRM: undefined
+CONFIRM: null
+PROMPT: undefined, default text: 
+PROMPT: null, default text: 
+ALERT: 
+CONFIRM: 
+PROMPT: , default text: 
+

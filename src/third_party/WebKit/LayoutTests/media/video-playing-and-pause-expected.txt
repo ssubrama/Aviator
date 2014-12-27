@@ -1,0 +1,9 @@
+Test that pausing the media element in "playing" event handler pauses the media element.
+
+EVENT(playing)
+EVENT(timeupdate)
+EVENT(pause)
+This is a testharness.js-based test.
+PASS Verifies pause actually pauses. 
+Harness: the test ran to completion.
+

@@ -1,0 +1,14 @@
+CONSOLE WARNING: <shadow> doesn't work for KEYGEN element host.
+CONSOLE WARNING: <shadow> doesn't work for FIELDSET element host.
+When a AuthorShadowRoot is added, UserAgentShadowRoot should exists as the oldest Shadow Root.
+
+PASS oldestShadowRoot is not shadowRoot
+PASS youngerShadowRoot is shadowRoot
+PASS oldestShadowRoot is not shadowRoot
+PASS youngerShadowRoot is shadowRoot
+PASS oldestShadowRoot is not shadowRoot
+PASS youngerShadowRoot is shadowRoot
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

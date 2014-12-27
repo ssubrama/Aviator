@@ -1,0 +1,100 @@
+Tests the Timeline API instrumentation of a DecodeImage and ResizeImage events
+
+
+DecodeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        imageType : "BMP"
+        url : .../inspector/timeline/resources/test.bmp
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        imageType : "GIF"
+        url : .../inspector/timeline/resources/test.gif
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        imageType : "ICO"
+        url : .../inspector/timeline/resources/test.ico
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "DecodeImage"
+}
+ResizeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        cached : true
+        url : .../inspector/timeline/resources/test.ico
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "ResizeImage"
+}
+DecodeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        imageType : "JPEG"
+        url : .../inspector/timeline/resources/test.jpg
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        imageType : "PNG"
+        url : .../inspector/timeline/resources/test.png
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        imageType : "WEBP"
+        url : .../inspector/timeline/resources/test.webp
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "DecodeImage"
+}
+DecodeImage Properties:
+{
+    children : <object>
+    data : {
+        backendNodeId : <number>
+        imageType : "PNG"
+        url : .../inspector/timeline/resources/big.png
+    }
+    endTime : <number>
+    startTime : <number>
+    type : "DecodeImage"
+}
+

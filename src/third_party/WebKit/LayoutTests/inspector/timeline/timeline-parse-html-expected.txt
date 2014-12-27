@@ -1,0 +1,30 @@
+Tests the Timeline API instrumentation of ParseHTML
+
+Test data
+ParseHTML Properties:
+{
+    children : <object>
+    data : {
+        endLine : 0
+        startLine : 0
+    }
+    endTime : <number>
+    frameId : <string>
+    stackTrace : <object>
+    startTime : <number>
+    type : "ParseHTML"
+}
+ParseHTML Properties:
+{
+    children : <object>
+    data : {
+        endLine : 0
+        startLine : 0
+    }
+    endTime : <number>
+    frameId : <string>
+    stackTrace : <object>
+    startTime : <number>
+    type : "ParseHTML"
+}
+

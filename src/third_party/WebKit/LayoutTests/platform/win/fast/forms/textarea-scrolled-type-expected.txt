@@ -1,0 +1,78 @@
+layer at (0,0) size 800x600
+  RenderView at (0,0) size 800x600
+layer at (0,0) size 800x600
+  RenderBlock {HTML} at (0,0) size 800x600
+    RenderBody {BODY} at (8,8) size 784x584
+      RenderBlock (anonymous) at (0,0) size 784x135
+        RenderText {#text} at (0,0) size 515x17
+          text run at (0,0) width 515: "This tests that typing in a scrolled textarea does not cause unnecessary scrolling."
+        RenderBR {BR} at (514,14) size 1x0
+        RenderText {#text} at (183,117) size 4x17
+          text run at (183,117) width 4: " "
+        RenderBR {BR} at (187,131) size 0x0
+      RenderBlock {DIV} at (0,135) size 784x0
+layer at (10,28) size 179x109 clip at (11,29) size 162x107 scrollY 210 scrollHeight 317
+  RenderTextControl {TEXTAREA} at (2,20) size 179x109 [bgcolor=#FFFFFF] [border: (1px solid #A9A9A9)]
+    RenderBlock {DIV} at (3,3) size 160x315
+      RenderText {#text} at (0,0) size 8x15
+        text run at (0,0) width 8: "1"
+      RenderBR {BR} at (7,11) size 1x0
+      RenderText {#text} at (0,15) size 8x15
+        text run at (0,15) width 8: "2"
+      RenderBR {BR} at (7,26) size 1x0
+      RenderText {#text} at (0,30) size 8x15
+        text run at (0,30) width 8: "3"
+      RenderBR {BR} at (7,41) size 1x0
+      RenderText {#text} at (0,45) size 8x15
+        text run at (0,45) width 8: "4"
+      RenderBR {BR} at (7,56) size 1x0
+      RenderText {#text} at (0,60) size 8x15
+        text run at (0,60) width 8: "5"
+      RenderBR {BR} at (7,71) size 1x0
+      RenderText {#text} at (0,75) size 8x15
+        text run at (0,75) width 8: "6"
+      RenderBR {BR} at (7,86) size 1x0
+      RenderText {#text} at (0,90) size 8x15
+        text run at (0,90) width 8: "7"
+      RenderBR {BR} at (7,101) size 1x0
+      RenderText {#text} at (0,105) size 8x15
+        text run at (0,105) width 8: "8"
+      RenderBR {BR} at (7,116) size 1x0
+      RenderText {#text} at (0,120) size 8x15
+        text run at (0,120) width 8: "9"
+      RenderBR {BR} at (7,131) size 1x0
+      RenderText {#text} at (0,135) size 16x15
+        text run at (0,135) width 16: "10"
+      RenderBR {BR} at (15,146) size 1x0
+      RenderText {#text} at (0,150) size 16x15
+        text run at (0,150) width 16: "11"
+      RenderBR {BR} at (15,161) size 1x0
+      RenderText {#text} at (0,165) size 16x15
+        text run at (0,165) width 16: "12"
+      RenderBR {BR} at (15,176) size 1x0
+      RenderText {#text} at (0,180) size 16x15
+        text run at (0,180) width 16: "13"
+      RenderBR {BR} at (15,191) size 1x0
+      RenderText {#text} at (0,195) size 16x15
+        text run at (0,195) width 16: "14"
+      RenderBR {BR} at (15,206) size 1x0
+      RenderText {#text} at (0,210) size 16x15
+        text run at (0,210) width 16: "15"
+      RenderBR {BR} at (15,221) size 1x0
+      RenderText {#text} at (0,225) size 16x15
+        text run at (0,225) width 16: "16"
+      RenderBR {BR} at (15,236) size 1x0
+      RenderText {#text} at (0,240) size 16x15
+        text run at (0,240) width 16: "17"
+      RenderBR {BR} at (15,251) size 1x0
+      RenderText {#text} at (0,255) size 56x15
+        text run at (0,255) width 56: "18 Pass"
+      RenderBR {BR} at (55,266) size 1x0
+      RenderText {#text} at (0,270) size 16x15
+        text run at (0,270) width 16: "19"
+      RenderBR {BR} at (15,281) size 1x0
+      RenderText {#text} at (0,285) size 16x15
+        text run at (0,285) width 16: "20"
+      RenderBR {BR} at (15,296) size 1x0
+      RenderBR {BR} at (0,300) size 0x15
+caret: position 7 of child 34 {#text} of child 0 {DIV} of {#document-fragment} of child 3 {TEXTAREA} of body

@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="../../http/tests/inspector/inspector-test.js"></script>
+<script src="../../http/tests/inspector/console-test.js"></script>
+<script>
+
+function onload()
+{
+    console.dir(["test1", "test2"]);
+    console.dir(document.childNodes);
+    console.dir(document.evaluate("//head", document, null, XPathResult.ANY_TYPE, null));
+
+    // Object with properties containing whitespaces
+    var obj = { $foo5_: 0 };
+    obj[" a b "] = " a b ";
+    obj["c d"] = "c d";
+    obj[""] = "";
+    obj["  "] = "  ";
+    obj["a\n\nb\nc"] = "a\n\nb\nc";
+    obj["negZero"] = -0;
+    console.dir(obj);
+
+    // This should correctly display information about the function.
+    console.dir(function() {});
+
+    runTest();
+}
+
+function test()
+{
+    InspectorTest.expandConsoleMessages(dumpConsoleMessages);
+
+    function dumpConsoleMessages()
+    {
+        InspectorTest.dumpConsoleMessages(false, false, InspectorTest.textContentWithLineBreaks);
+        InspectorTest.completeTest();
+    }
+}
+
+</script>
+</head>
+
+<body onload="onload()">
+<p>
+Tests that console logging dumps proper messages.
+</p>
+
+</body>
+</html>

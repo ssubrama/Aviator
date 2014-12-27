@@ -1,0 +1,6 @@
+main frame - img requested 'image-set-4x.png'
+PASS successfullyParsed is true
+
+TEST COMPLETE
+PASS currentSrcFileName("foo") is "image-set-4x.png"
+

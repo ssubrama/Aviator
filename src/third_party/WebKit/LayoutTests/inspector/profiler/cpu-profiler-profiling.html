@@ -1,0 +1,50 @@
+<html>
+<head>
+  <script src="../../http/tests/inspector/inspector-test.js"></script>
+  <script src="profiler-test.js"></script>
+<script>
+
+function pageFunction() {
+    console.profile("profile");
+    console.profileEnd("profile");
+}
+
+function test()
+{
+    InspectorTest.runProfilerTestSuite([
+        function testProfiling(next)
+        {
+            function findPageFunctionInProfileView(view)
+            {
+                var tree = view.profileDataGridTree;
+                if (!tree)
+                    InspectorTest.addResult("no tree");
+                var node = tree.children[0];
+                if (!node)
+                    InspectorTest.addResult("no node");
+                while (node) {
+                    if (node.functionName.indexOf("pageFunction") !== -1) {
+                        InspectorTest.addResult("found pageFunction");
+                        break;
+                    }
+                    node = node.traverseNextNode(true, null, true);
+                }
+                next();
+            }
+            InspectorTest.showProfileWhenAdded("profile");
+            InspectorTest.waitUntilProfileViewIsShown("profile", findPageFunctionInProfileView);
+            InspectorTest.evaluateInConsole("pageFunction()", function done() {});
+        }
+    ]);
+}
+
+</script>
+</head>
+<body onload="runTest()">
+<p>
+Tests that CPU profiling works.
+
+<a href="https://bugs.webkit.org/show_bug.cgi?id=52634">Bug 52634.</a>
+</p>
+</body>
+</html>

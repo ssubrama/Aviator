@@ -1,0 +1,22 @@
+//
+//  DialogsDelegate.mm
+//  D
+//
+//  Created by Robin Mills on 4/27/10.
+//  Copyright 2010 RMSC, San Jose, CA, USA. All rights reserved.
+//
+
+#import "DialogsDelegate.h"
+//#include "chrome/browser/championconfig/Warn_before_quit/QuitDialog.h" // Champion Added for warn before quit
+
+@implementation DialogsDelegate
+
+@synthesize window;
+//@synthesize window1;
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	// Insert code here to initialize your application 
+	//objQuitDialog= [[QuitDialog alloc] init];
+}
+ 
+@end

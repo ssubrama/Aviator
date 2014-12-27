@@ -1,0 +1,129 @@
+<div id="connection-control-page" class="page" hidden>
+  <h1>Connection Control</h1>
+  <div class="close-button" id="closeBtn"></div>
+  <!-- champion for getting scroll <div class="content-area">  -->
+  <div class="mainContent">
+    <div>
+      <input type="checkbox" id="default_chk" />
+      <span> Load Blocked URLs automatically in different browser and don't ask me again</span>
+    </div>
+    <div id="blocked-urls">
+      <label>Select an alternative browser to load the blocked URLs </label>
+      <select id="blocked-url-browser" class="weakrtl">
+        <!--<option value="0">Safari</option>
+        <option value="1">Chrome</option>
+        <option value="2">Firefox</option>-->
+      </select>
+    </div>
+    <button id="new">
+      Add Rule
+    </button>
+  </div>
+  <div>
+    <br />
+  </div>
+
+  <div id="tableDiv">
+
+    <table id="tableId" border="0" cellspacing="0">
+      <tr>
+        <th></th>
+        <th>Rules</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </table>
+  </div>
+
+  <!-- NTLM champion -->
+  <div id="divNtlmRules">
+    <h1>NTLM Whitelist Sites</h1>
+    <button id="btnAddNtlmRule">Add URL</button>
+
+    <table id="tblNtlmRules">
+      <tbody>
+        <tr>
+	      <th></th>
+          <th>NTLM Whitelist Rules</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="addPage">
+    <div class="header_padd">
+      <div class="header">
+        <h3 class="head_rule" id="heading3">Add Rule</h3>
+        <span class="close" id="closeButton"></span>
+      </div>
+      <div class="ruleContent">
+        <div class="contentDiv">
+          <span class="contentLeft"> Rule </span>
+          <select class="inputRight" id="conn">
+            <option value="Allow">Allow Connections</option>
+            <option value="Deny">Deny Connections</option>
+          </select>
+        </div>
+        <div class="contentDiv">
+          <span class="contentLeft"> Protocol </span>
+          <select class="inputRight" id="protocol" onchange="portValue(this);">
+            <option selected>-Select-</option>
+            <option value="http">http</option>
+            <option value="https">https</option>
+            <option value="ftp">ftp</option>
+          </select>
+        </div>
+        <div class="contentDiv">
+          <span class="contentLeft"> Port </span>
+          <input type="text" id="portText" />
+        </div>
+        <div class="contentDiv">
+          <span class="contentLeft"> Server </span>
+          <select class="inputRight" id="server" onchange="test(this.value);">
+            <option selected>-Select-</option>
+            <option value="Domain">Domain</option>
+            <option value="Hostname">Hostname</option>
+            <option value="IP Address">IP Address</option>
+            <option value="Public Network">Public Network</option>
+            <option value="Private Network">Private Network</option>
+          </select>
+        </div>
+        <div class="contentDiv1" id="hideDiv">
+          <span class="contentLeft" id="hideValue"> Value </span>
+          <input type="text" id="valueText" />
+        </div>
+        <div class="contentDiv">
+          <span class="contentLeft"> Enabled </span>
+          <input type="checkbox" id="enable" />
+        </div>
+      </div>
+    </div>
+    <div class="buttonRight">
+      <input type="button" value="Submit" class="button_style" id="rule" />
+      <input type="button" value="Cancel" id="cancel" class="button_style close1" />
+    </div>
+  </div>
+  <div id="addNtlmURL">
+    <div class="header_padd">
+      <div class="header">
+        <h3 class="head_rule" id="ntlmheading3">Add URL</h3>
+        <span class="close" id="ntlmCloseButton"></span>
+      </div>
+      <div class="ruleContent">
+        <div class="contentDiv">
+          <span class="contentLeft" id="ntlmHideValue"> URL </span>
+          <input type="text" id="ntlmValueText" />
+        </div>
+        <div class="contentDiv">
+          <span class="contentLeft"> Enabled </span>
+          <input type="checkbox" id="ntlmEnable" />
+        </div>
+      </div>
+    </div>
+    <div class="buttonRight">
+      <input type="button" value="Submit" class="button_style" id="btnNtlmURL" />
+      <input type="button" value="Cancel" id="btnNtlmCancel" class="button_style close1" />
+    </div>
+  </div>
+  <!-- champion for getting scroll </div> -->
+</div>

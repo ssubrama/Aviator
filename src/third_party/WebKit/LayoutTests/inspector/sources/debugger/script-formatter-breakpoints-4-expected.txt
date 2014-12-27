@@ -1,0 +1,9 @@
+Tests the script formatting is working fine with breakpoints.
+
+
+Running: testBreakpointSetInOriginalAndRemovedInFormatted
+Adding breakpoint.
+Formatting.
+Removing breakpoint.
+Unformatting.
+

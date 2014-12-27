@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<script src="../../resources/js-test.js"></script>
+</head>
+<body>
+<script>
+description("Ensure correct behavior of createImageBitmap for invalid inputs.");
+window.jsTestIsAsync = true;
+
+var TypeError = "TypeError: Failed to execute 'createImageBitmap' on 'Window': No function was found that matched the signature provided.";
+var IndexSizeError = "IndexSizeError: Index or size was negative, or greater than the allowed value.";
+
+var image;
+var testBitmap; // an ImageBitmap that is uncropped. We use this to test createImageBitmap(testBitmap)
+var d;          // image.imageData
+var blob;
+var invalidBlob;
+var invalidBlobTestPassed = false;
+var invalidCanvasTestPassed = false;
+
+// Draw to an auxillary canvas.
+var aCanvas = document.createElement("canvas");
+aCanvas.setAttribute("width", "200");
+aCanvas.setAttribute("height", "200");
+var aCtx = aCanvas.getContext("2d");
+
+// Create a terapixel canvas to generate an invalid canvas through allocation failure
+var invalidCanvas = document.createElement("canvas");
+invalidCanvas.setAttribute("width", "1000000");
+invalidCanvas.setAttribute("height", "1000000");
+
+image = new Image();
+image.onload = imageLoaded;
+
+// Before image loads
+shouldThrow("createImageBitmap(image)");
+image.src = aCanvas.toDataURL();
+
+video = document.createElement("video");
+video.addEventListener("canplaythrough", videoLoaded, false);
+
+// Before video loads
+shouldThrow("createImageBitmap(video)");
+video.src = "../../compositing/resources/video.ogv";
+
+var imageLoaded = false;
+var videoLoaded = false;
+var imageBitmapLoaded = false;
+var blobLoaded = false;
+var invalidBlobLoaded = false;
+
+function imageLoaded() {
+    createImageBitmap(image).then(imageBitmapLoadedCallback, function() {
+        testFailed("Promise was rejected.");
+        finishJSTest();
+    });
+    d = aCtx.getImageData(0, 0, 200, 200);
+    imageLoaded = true;
+    loaded();
+}
+
+function videoLoaded() {
+    videoLoaded = true;
+    loaded();
+}
+
+function imageBitmapLoadedCallback(imageBitmap) {
+    testBitmap = imageBitmap;
+    imageBitmapLoaded = true;
+    loaded();
+}
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", 'resources/pattern.png');
+xhr.responseType = 'blob';
+xhr.send();
+xhr.onload = function() {
+    blob = xhr.response;
+    blobLoaded = true;
+    loaded();
+}
+
+var xhr2 = new XMLHttpRequest();
+xhr2.open("GET", 'resources/shadow-offset.js');
+xhr2.responseType = 'blob';
+xhr2.send();
+xhr2.onload = function() {
+    invalidBlob = xhr2.response;
+    invalidBlobLoaded = true;
+    loaded();
+}
+
+var finishIfDoneCallsRemaining = 2;
+function finishIfDone() {
+    finishIfDoneCallsRemaining--;
+    if (!finishIfDoneCallsRemaining) {
+        // Because promise fulfillment is asynchonous, pass/fail messages
+        // must be handled here to ensure a deterministic message order.
+        if (invalidBlobTestPassed) {
+            testPassed("createImageBitmap(invalidBlob) was rejected.");
+        } else {
+            testFailed("Invalid blob fulfilled.");
+        }
+        if (invalidCanvasTestPassed) {
+            testPassed("createImageBitmap(invalidCanvas) was rejected.");
+        } else {
+            testFailed("Invalid canvas fulfilled.");
+        }
+        finishJSTest();
+    }
+}
+
+function loaded() {
+    if (imageLoaded && videoLoaded && imageBitmapLoaded && blobLoaded && invalidBlobLoaded) {
+        shouldThrow("createImageBitmap(undefined)", "TypeError");
+        shouldThrow("createImageBitmap(null)", "TypeError");
+
+        shouldThrow("createImageBitmap(image, 0, 0, 10, 0)");
+        shouldThrow("createImageBitmap(image, 0, 0, 0, 10)");
+
+        shouldThrow("createImageBitmap(video, 0, 0, 10, 0)");
+        shouldThrow("createImageBitmap(video, 0, 0, 0, 10)");
+
+        shouldThrow("createImageBitmap(aCanvas, 0, 0, 10, 0)");
+        shouldThrow("createImageBitmap(aCanvas, 0, 0, 0, 10)");
+
+        shouldThrow("createImageBitmap(d, 0, 0, 10, 0)");
+        shouldThrow("createImageBitmap(d, 0, 0, 0, 10)");
+
+        shouldThrow("createImageBitmap(aCtx, 0, 0, 10, 0)");
+        shouldThrow("createImageBitmap(aCtx, 0, 0, 0, 10)");
+
+        shouldThrow("createImageBitmap(testBitmap, 0, 0, 10, 0)");
+        shouldThrow("createImageBitmap(testBitmap, 0, 0, 0, 10)");
+
+        shouldThrow("createImageBitmap(blob, 0, 0, 10, 0)");
+        shouldThrow("createImageBitmap(blob, 0, 0, 0, 10)");
+
+        createImageBitmap(invalidBlob).then(function() {
+            finishIfDone();
+        }, function() {
+            invalidBlobTestPassed = true;
+            finishIfDone();
+        });
+
+        createImageBitmap(invalidCanvas).then(function() {
+            finishIfDone();
+        }, function() {
+            invalidCanvasTestPassed = true;
+            finishIfDone();
+        });
+        }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+<head>
+<script src="../../../http/tests/inspector/inspector-test.js"></script>
+<script src="../../../http/tests/inspector/elements-test.js"></script>
+<style>
+/* comment */.inline-style-added-by-parser {
+   color: red;
+}
+</style>
+<style>
+.inline-style-added-by-parser-with-source-url {
+   color: green;
+}
+/*# sourceURL=inlineStyleAddedByParser.css*/
+</style>
+<script>
+document.write("<style>\n.inline-style-added-by-parser-in-document-write {\n   color: blue;\n}\n</style>");
+document.write("<style>\n.inline-style-added-by-document-write-with-source-url {\n   color: yellow;\n}\n/*# sourceURL=inlineStyleAddedByDocumentWrite.css*/\n</style>");
+addStyleElement(".inline-style-created-by-script {\n   color: orange;\n}");
+addStyleElement(".inline-style-created-by-script-with-source-url {\n   color: grey;\n}\n/*# sourceURL=inlineStyleCreatedByScript.css*/");
+
+function addStyleElement(styleContent)
+{
+    var styleElement = document.createElement("style");
+    styleElement.textContent = styleContent;
+    document.head.appendChild(styleElement);
+}
+
+var test = function()
+{
+    WebInspector.cssModel.addEventListener(WebInspector.CSSStyleModel.Events.StyleSheetAdded, styleSheetAdded);
+    InspectorTest.reloadPage(step1);
+    var styleSheets = [];
+
+    function pathToFileName(path)
+    {
+        return path.substring(path.lastIndexOf("/") + 1);
+    }
+
+    function step1()
+    {
+        InspectorTest.selectNodeAndWaitForStyles("inspected", step2);
+    }
+
+    function step2()
+    {
+        styleSheets.sort();
+        for (var i = 0; i < styleSheets.length; ++i)
+            InspectorTest.addResult(styleSheets[i]);
+        InspectorTest.dumpSelectedElementStyles(true, false, true);
+        InspectorTest.completeTest();
+    }
+    
+    function styleSheetAdded(event)
+    {
+        var header = event.data;
+        var text = ["Stylesheet added:"];
+        text.push("  - isInline: " + header.isInline);
+        text.push("  - sourceURL: " + pathToFileName(header.sourceURL));
+        text.push("  - hasSourceURL: " + header.hasSourceURL);
+
+        CSSAgent.getStyleSheetText(header.id, contentLoaded.bind(this));
+
+        function contentLoaded(error, content)
+        {
+            text.push("  - contents: " + content);
+            styleSheets.push(text.join("\n"));
+        }
+    }
+}
+</script>
+</head>
+<body onload="runTest()">
+<p>Tests that different types of inline styles are correctly disambiguated and their sourceURL is correct.
+<div id="inspected" style="color:red" class="inline-style-added-by-parser inline-style-added-by-parser-with-source-url inline-style-added-by-parser-in-document-write inline-style-added-by-document-write-with-source-url inline-style-created-by-script inline-style-created-by-script-with-source-url"></div>
+</body>
+</html>
+
+

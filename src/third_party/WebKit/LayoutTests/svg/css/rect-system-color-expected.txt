@@ -1,0 +1,206 @@
+Test that fill and stroke properties accept system colors
+
+On success, you will see a series of "PASS" messages, followed by "TEST COMPLETE".
+
+
+
+Testing system colorActiveBorder
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorActiveCaption
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorAppWorkspace
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorBackground
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorButtonFace
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorButtonHighlight
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorButtonShadow
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorButtonText
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorCaptionText
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorGrayText
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorHighlight
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorHighlightText
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorInactiveBorder
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorInactiveCaption
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorInactiveCaptionText
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorInfoBackground
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorInfoText
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorMenu
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorMenuText
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorScrollbar
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorThreeDDarkShadow
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorThreeDFace
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorThreeDHighlight
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorThreeDLightShadow
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorThreeDShadow
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorWindow
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorWindowFrame
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+Testing system colorWindowText
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS parseInt(color1Components[1]) is systemColorRed
+PASS parseInt(color1Components[2]) is systemColorGreen
+PASS parseInt(color1Components[3]) is systemColorBlue
+PASS successfullyParsed is true
+
+TEST COMPLETE
+

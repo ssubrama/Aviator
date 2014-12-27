@@ -1,0 +1,72 @@
+# Copyright (c) [2013-2015] WhiteHat. All Rights Reserved. WhiteHat contributions included 
+# in this file are licensed under the BSD-3-clause license (the "License") included in 
+# the WhiteHat-LICENSE file included in the root directory of the distributed source code 
+# archive. Unless required by applicable law or agreed to in writing, software distributed
+# under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+# ANY KIND, either express or implied. See the License for the specific language governing 
+# permissions and limitations under the License. 
+# champion : app name changes
+{
+  'conditions': [
+    ['OS=="linux"', {
+      'variables': {
+        'command': [
+          '../testing/xvfb.py',
+          '<(PRODUCT_DIR)',
+          '<(PRODUCT_DIR)/sync_integration_tests<(EXECUTABLE_SUFFIX)',
+          '--test-launcher-bot-mode',
+        ],
+        'isolate_dependency_tracked': [
+          '../testing/test_env.py',
+          '../testing/xvfb.py',
+          '<(PRODUCT_DIR)/Aviator_100_percent.pak',
+          '<(PRODUCT_DIR)/libffmpegsumo.so',
+          '<(PRODUCT_DIR)/libppGoogleNaClPluginChrome.so',
+          '<(PRODUCT_DIR)/locales/en-US.pak',
+          '<(PRODUCT_DIR)/nacl_helper<(EXECUTABLE_SUFFIX)',
+          '<(PRODUCT_DIR)/nacl_helper_bootstrap<(EXECUTABLE_SUFFIX)',
+          '<(PRODUCT_DIR)/nacl_irt_x86_64.nexe',
+          '<(PRODUCT_DIR)/xdisplaycheck<(EXECUTABLE_SUFFIX)',
+        ],
+        'isolate_dependency_untracked': [
+          '../net/tools/testserver/',
+        ],
+      },
+    }],
+    ['OS=="linux" or OS=="mac"', {
+      'variables': {
+        'isolate_dependency_tracked': [
+          '<(PRODUCT_DIR)/resources.pak',
+          '<(PRODUCT_DIR)/sync_integration_tests<(EXECUTABLE_SUFFIX)',
+        ],
+        'isolate_dependency_untracked': [
+          '../third_party/pyftpdlib/',
+          '../third_party/pywebsocket/',
+          '../third_party/tlslite/',
+        ],
+      },
+    }],
+    ['OS=="linux" or OS=="mac" or OS=="win"', {
+      'variables': {
+        'isolate_dependency_untracked': [
+          '<(PRODUCT_DIR)/pyproto/',
+        ],
+      },
+    }],
+    ['OS=="mac"', {
+      'variables': {
+        'command': [
+          '<(PRODUCT_DIR)/sync_integration_tests<(EXECUTABLE_SUFFIX)',
+          '--test-launcher-bot-mode',
+        ],
+        'isolate_dependency_tracked': [
+          '<(PRODUCT_DIR)/ffmpegsumo.so',
+        ],
+        'isolate_dependency_untracked': [
+          '<(PRODUCT_DIR)/<(mac_product_name) Framework.framework/',
+          '<(PRODUCT_DIR)/<(mac_product_name).app/',
+        ],
+      },
+    }],
+  ],
+}

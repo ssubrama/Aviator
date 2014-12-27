@@ -1,0 +1,21 @@
+.buttonRight{
+	text-align:right;
+	border-top:1px solid #C1C1C1;
+	padding:5px 5px 5px 0;
+}
+
+.importHelpContentDiv{
+	width:450px;
+	padding-top:10px;
+	display: block;
+	clear: both;
+}
+
+#referrer-import-help-header-manager.page{  
+	padding: 15px;
+	min-width: 460px;
+	/*overflow: auto;*/
+}
+#referrer-import-help-header-manager.page h1{
+	padding: 0px 14px 8px 0px;
+}

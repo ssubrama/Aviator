@@ -1,0 +1,356 @@
+<html>
+<head>
+<script src="../../../http/tests/inspector/inspector-test.js"></script>
+<script src="breakpoint-manager.js"></script>
+
+<script>
+
+function test()
+{
+    function resetWorkspace(breakpointManager)
+    {
+        InspectorTest.addResult("  Resetting workspace.");
+        breakpointManager._networkWorkspaceBinding.reset();
+        breakpointManager._debuggerProjectDelegate.reset();
+    }
+
+    function addTemporaryUISourceCode(breakpointManager, url)
+    {
+        mockTarget.debuggerModel._addScript(url, url);
+        InspectorTest.addResult("  Adding temporary UISourceCode: " + url);
+        var contentProvider = new WebInspector.StaticContentProvider(WebInspector.resourceTypes.Script, "");
+        var path = breakpointManager._debuggerProjectDelegate.addContentProvider("", url, url, contentProvider);
+        var uiSourceCode = breakpointManager._workspace.uiSourceCode("debugger:", path);
+        uiSourceCode.setSourceMappingForTarget(mockTarget, mockTarget.defaultMapping);
+        InspectorTest.uiSourceCodes[url] = uiSourceCode;
+        return uiSourceCode;
+    }
+
+    function createBreakpoint(uiSourceCodeId, lineNumber, condition, enabled)
+    {
+        return { sourceFileId: uiSourceCodeId, lineNumber: lineNumber, condition: condition, enabled: enabled };
+    }
+
+    var serializedBreakpoints = [];
+    serializedBreakpoints.push(createBreakpoint("a.js", 10, "foo == bar", true));
+    serializedBreakpoints.push(createBreakpoint("a.js", 20, "", false));
+    serializedBreakpoints.push(createBreakpoint("b.js", 3, "", true));
+
+    var targetManager = new WebInspector.TargetManager();
+    var mockTarget = InspectorTest.createMockTarget(targetManager, 1);
+    targetManager._targets.push(mockTarget);
+    InspectorTest.setupLiveLocationSniffers();
+
+    var addUISourceCode = InspectorTest.addUISourceCode.bind(null, mockTarget);
+    var createBreakpointManager = InspectorTest.createBreakpointManager.bind(null, targetManager);
+
+    InspectorTest.runTestSuite([
+        function testSetBreakpoint(next)
+        {
+            var breakpointManager = createBreakpointManager();
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+            InspectorTest.setBreakpoint(breakpointManager, uiSourceCode, 30, 0, "", true, InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next));
+        },
+
+        function testSetDisabledBreakpoint(next)
+        {
+            var breakpointManager = createBreakpointManager();
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+            var breakpoint = InspectorTest.setBreakpoint(breakpointManager, uiSourceCode, 30, 0, "", false);
+            InspectorTest.dumpBreakpointLocations(breakpointManager);
+            InspectorTest.dumpBreakpointStorage(breakpointManager);
+            InspectorTest.addResult("  Enabling breakpoint");
+            breakpoint.setEnabled(true);
+            window.setBreakpointCallback = InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next);
+        },
+
+        function testSetConditionalBreakpoint(next)
+        {
+            var breakpointManager = createBreakpointManager();
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+            var breakpoint = InspectorTest.setBreakpoint(breakpointManager, uiSourceCode, 30, 0, "condition", true, step2);
+
+            function step2()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.dumpBreakpointStorage(breakpointManager);
+                InspectorTest.addResult("  Updating condition");
+                breakpoint.setCondition("");
+                window.setBreakpointCallback = InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next);
+            }
+        },
+
+        function testRestoreBreakpoints(next)
+        {
+            var breakpointManager = createBreakpointManager(serializedBreakpoints);
+            addUISourceCode(breakpointManager, "a.js");
+            window.setBreakpointCallback = InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next);
+        },
+
+        function testRestoreBreakpointsTwice(next)
+        {
+            var breakpointManager = createBreakpointManager(serializedBreakpoints);
+            addUISourceCode(breakpointManager, "a.js");
+            addUISourceCode(breakpointManager, "a.js");
+            window.setBreakpointCallback = InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next);
+        },
+
+        function testRemoveBreakpoints(next)
+        {
+            var breakpointManager = createBreakpointManager(serializedBreakpoints);
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+            window.setBreakpointCallback = step2.bind(this);
+
+            function step2()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.setBreakpoint(breakpointManager, uiSourceCode, 30, 0, "", true, step3);
+            }
+
+            function step3()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.removeBreakpoint(breakpointManager, uiSourceCode, 30, 0);
+                InspectorTest.removeBreakpoint(breakpointManager, uiSourceCode, 10, 0);
+                InspectorTest.removeBreakpoint(breakpointManager, uiSourceCode, 20, 0);
+                InspectorTest.finishBreakpointTest(breakpointManager, next);
+            }
+        },
+
+        function testSetBreakpointThatShifts(next)
+        {
+            var breakpointManager = createBreakpointManager();
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+            InspectorTest.setBreakpoint(breakpointManager, uiSourceCode, 1015, 0, "", true, InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next));
+        },
+
+        function testSetBreakpointThatShiftsTwice(next)
+        {
+            var breakpointManager = createBreakpointManager();
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+            InspectorTest.setBreakpoint(breakpointManager, uiSourceCode, 1015, 0, "", true, step2);
+
+            function step2()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.setBreakpoint(breakpointManager, uiSourceCode, 1015, 0, "", true, InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next));
+            }
+        },
+
+        function testSetBreakpointOutsideScript(next)
+        {
+            var breakpointManager = createBreakpointManager();
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+            breakpointManager.setBreakpoint(uiSourceCode, 2500, 0, "", true);
+            window.setBreakpointCallback = InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next);
+       },
+
+        function testNavigation(next)
+        {
+            var breakpointManager = createBreakpointManager(serializedBreakpoints);
+            var uiSourceCodeA = addUISourceCode(breakpointManager, "a.js");
+            window.setBreakpointCallback = step2.bind(this);
+
+            function step2()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.addResult("\n  Navigating to B.");
+                mockTarget.debuggerModel.reset();
+                resetWorkspace(breakpointManager);
+                var uiSourceCodeB = addUISourceCode(breakpointManager, "b.js");
+                window.setBreakpointCallback = step3.bind(this);
+            }
+
+            function step3()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.addResult("\n  Navigating back to A.");
+                mockTarget.debuggerModel.reset();
+                resetWorkspace(breakpointManager);
+                InspectorTest.addResult("  Resolving provisional breakpoint.");
+                addTemporaryUISourceCode(breakpointManager, "a.js");
+                mockTarget.debuggerModel._breakpointResolved("a.js:10", new WebInspector.DebuggerModel.Location(mockTarget, "a.js", 11, 5));
+                addUISourceCode(breakpointManager, "a.js");
+                window.setBreakpointCallback = InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next);
+            }
+        },
+
+        function testSourceMapping(next)
+        {
+            var shiftingMapping = {
+                rawLocationToUILocation: function(rawLocation)
+                {
+                    if (this._disabled)
+                        return null;
+                    return InspectorTest.uiSourceCodes[rawLocation.scriptId].uiLocation(rawLocation.lineNumber + 10, 0);
+                },
+
+                uiLocationToRawLocation: function(uiSourceCode, lineNumber)
+                {
+                    return new WebInspector.DebuggerModel.Location(mockTarget, uiSourceCode.url, lineNumber - 10, 0);
+                },
+
+                isIdentity: function()
+                {
+                    return false;
+                }
+            };
+
+            // Source mapping will shift everthing 10 lines ahead so that breakpoint 1 clashed with breakpoint 2.
+            var serializedBreakpoints = [];
+            serializedBreakpoints.push(createBreakpoint("a.js", 10, "foo == bar", true));
+            serializedBreakpoints.push(createBreakpoint("a.js", 20, "", true));
+
+            var breakpointManager = createBreakpointManager(serializedBreakpoints);
+            var uiSourceCodeA = addUISourceCode(breakpointManager, "a.js");
+            window.setBreakpointCallback = step2.bind(this);
+
+            function step2()
+            {
+                window.setBreakpointCallback = step3.bind(this);
+            }
+
+            function step3()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.addResult("\n  Toggling source mapping.");
+                mockTarget.debuggerModel.pushSourceMapping(shiftingMapping);
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.addResult("\n  Toggling source mapping back.");
+                mockTarget.debuggerModel.disableSourceMapping(shiftingMapping);
+                InspectorTest.finishBreakpointTest(breakpointManager, next);
+            }
+
+        },
+
+        function testProvisionalBreakpointsResolve(next)
+        {
+            var serializedBreakpoints = [];
+            serializedBreakpoints.push(createBreakpoint("a.js", 10, "foo == bar", true));
+
+            var breakpointManager = createBreakpointManager(serializedBreakpoints);
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+            window.setBreakpointCallback = step2.bind(this);
+
+            function step2()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                mockTarget.debuggerModel.reset();
+                resetWorkspace(breakpointManager);
+                InspectorTest.addResult("  Resolving provisional breakpoint.");
+                addTemporaryUISourceCode(breakpointManager, "a.js");
+                mockTarget.debuggerModel._breakpointResolved("a.js:10", new WebInspector.DebuggerModel.Location(mockTarget, "a.js", 11, 5));
+                var breakpoints = breakpointManager.allBreakpoints();
+                InspectorTest.assertEquals(breakpoints.length, 1, "Exactly one provisional breakpoint should be registered in breakpoint manager.");
+                InspectorTest.finishBreakpointTest(breakpointManager, next);
+            }
+        },
+
+        function testSourceMappingReload(next)
+        {
+            function createSourceMapping(uiSourceCodeA, uiSourceCodeB)
+            {
+                var mapping = {
+                    rawLocationToUILocation: function(rawLocation)
+                    {
+                        if (this._disabled)
+                            return null;
+                        return uiSourceCodeB.uiLocation(rawLocation.lineNumber + 10, 0);
+                    },
+
+                    uiLocationToRawLocation: function(uiSourceCode, lineNumber)
+                    {
+                        return new WebInspector.DebuggerModel.Location(mockTarget, uiSourceCodeA.url, lineNumber - 10, 0);
+                    },
+
+                    isIdentity: function()
+                    {
+                        return false;
+                    }
+                };
+
+                return mapping;
+            }
+            // Source mapping will shift everthing 10 lines ahead.
+            var serializedBreakpoints = [createBreakpoint("b.js", 20, "foo == bar", true)];
+            var breakpointManager = createBreakpointManager(serializedBreakpoints);
+            InspectorTest.addResult("\n  Adding files:");
+            var uiSourceCodeA = addUISourceCode(breakpointManager, "a.js");
+            var uiSourceCodeB = addUISourceCode(breakpointManager, "b.js", true, true);
+
+            InspectorTest.addResult("\n  Toggling source mapping.");
+            var sourceMapping = createSourceMapping(uiSourceCodeA, uiSourceCodeB);
+            mockTarget.debuggerModel.pushSourceMapping(sourceMapping);
+            window.setBreakpointCallback = provisionalBreakpointSet.bind(this);
+            uiSourceCodeB.setSourceMappingForTarget(mockTarget, sourceMapping);
+
+            function provisionalBreakpointSet()
+            {
+                window.setBreakpointCallback = step2.bind(this);
+            }
+
+            function step2()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.addResult("\n  Reloading:");
+                mockTarget.debuggerModel.reset();
+                resetWorkspace(breakpointManager);
+
+                InspectorTest.addResult("\n  Adding files:");
+                addTemporaryUISourceCode(breakpointManager, "a.js");
+                mockTarget.debuggerModel._breakpointResolved("a.js:10", new WebInspector.DebuggerModel.Location(mockTarget, "a.js", 10, 5));
+                uiSourceCodeA = addUISourceCode(breakpointManager, "a.js");
+                uiSourceCodeB = addUISourceCode(breakpointManager, "b.js", true, true);
+
+                InspectorTest.addResult("\n  Toggling source mapping.");
+                var sourceMapping = createSourceMapping(uiSourceCodeA, uiSourceCodeB);
+                mockTarget.debuggerModel.pushSourceMapping(sourceMapping);
+                window.setBreakpointCallback = provisionalBreakpointSetAfterReload.bind(this);
+                uiSourceCodeB.setSourceMappingForTarget(mockTarget, sourceMapping);
+            }
+
+            function provisionalBreakpointSetAfterReload()
+            {
+                window.setBreakpointCallback = InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next);
+            }
+
+        },
+
+        function testBreakpointInCollectedReload(next)
+        {
+            var breakpointManager = createBreakpointManager();
+            InspectorTest.addResult("\n  Adding file without script:");
+            var uiSourceCode = addUISourceCode(breakpointManager, "a.js", true, true);
+
+            InspectorTest.addResult("\n  Setting breakpoint:");
+            InspectorTest.setBreakpoint(breakpointManager, uiSourceCode, 10, 0, "", true, step2);
+
+            function step2()
+            {
+                InspectorTest.dumpBreakpointLocations(breakpointManager);
+                InspectorTest.addResult("\n  Reloading:");
+                mockTarget.debuggerModel.reset();
+                resetWorkspace(breakpointManager);
+
+                InspectorTest.addResult("\n  Adding file with script:");
+                var uiSourceCode = addUISourceCode(breakpointManager, "a.js");
+
+                InspectorTest.addResult("\n  Emulating breakpoint resolved event:");
+                mockTarget.debuggerModel._breakpointResolved("a.js:10", new WebInspector.DebuggerModel.Location(mockTarget, "a.js", 10, 5));
+
+                InspectorTest.addResult("\n  Waiting for breakpoint to be set in debugger again:");
+                window.setBreakpointCallback = InspectorTest.finishBreakpointTest.bind(this, breakpointManager, next);
+            }
+        },
+    ]);
+};
+
+</script>
+
+</head>
+
+<body onload="runTest()">
+<p>Tests BreakpointManager class.</p>
+
+</body>
+</html>

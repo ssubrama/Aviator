@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<script src="/js-test-resources/js-test.js"></script>
+<script>
+description('Tests that different documents created using createDocument do not share the underlying domain');
+if (window.internals)
+    internals.settings.setTreatIPAddressAsDomain(true);
+
+var doc = document.implementation.createDocument(null, 'one', null);
+shouldBeEqualToString('document.domain', '127.0.0.1');
+shouldBeEqualToString('doc.domain', '127.0.0.1');
+
+document.domain = '0.1';
+shouldBeEqualToString('document.domain', '0.1');
+shouldBeEqualToString('doc.domain', '127.0.0.1');
+</script>
+</html>

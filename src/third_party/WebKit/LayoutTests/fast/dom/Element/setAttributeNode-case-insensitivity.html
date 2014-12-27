@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../../../resources/js-test.js"></script>
+<script>
+function runTest()
+{
+    description("This test verifies that the setAttributeNode() API checks for existing attributes case-insensitively. Thus the value of an existing attribute with the same name but in a different case should get replaced by the new value specified via the setAttributeNode() method.");
+    
+    var test = document.getElementById("test");
+    var newStyleAttr = document.createAttribute("STYLE");
+    newStyleAttr.value = "background-color: green";
+    test.setAttributeNode(newStyleAttr);
+    if (window.testRunner) {
+        shouldBe("test.getAttribute('style')", "test.getAttribute('STYLE')");
+        shouldBe("test.getAttributeNode('style').value", "test.getAttributeNode('STYLE').value");
+    }
+}
+</script>
+</head>
+<body onload="runTest()">
+<div>Test for Bugzilla bug:<a href="https://bugs.webkit.org/show_bug.cgi?id=90341"> 90341:</a>  createAttribute/setAttributeNode does not properly normalize case.</div>
+<div id="test" style="background-color: red">&nbsp;</div>
+<div id="description"></div>
+<div id="console"></div>
+</body>
+</html>

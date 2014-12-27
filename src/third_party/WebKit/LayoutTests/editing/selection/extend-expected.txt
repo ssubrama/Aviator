@@ -1,0 +1,8 @@
+foobarbaz
+Success: window.getSelection() is ar.
+Success: s.extend(span2.firstChild, 4) raised IndexSizeError: Failed to execute 'extend' on 'Selection': 4 is larger than the given node's length..
+Success: s.extend(span2.firstChild, -1) raised IndexSizeError: Failed to execute 'extend' on 'Selection': -1 is not a valid offset..
+Success: window.getSelection() is b.
+Success: window.getSelection() is arbaz.
+Success: s.extend() raised TypeMismatchError: Failed to execute 'extend' on 'Selection': The 1st argument provided is either null, or an invalid Node object..
+Success: s.extend(null, 0) raised TypeMismatchError: Failed to execute 'extend' on 'Selection': The 1st argument provided is either null, or an invalid Node object..

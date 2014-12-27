@@ -1,0 +1,10 @@
+CONSOLE WARNING: The 'overflowchanged' event is deprecated and may be removed. Please do not use it.
+Tests that overflowchanged events are deferred until raf.
+
+layout
+layout
+layout
+overflowchanged
+overflowchanged
+overflowchanged
+requestAnimationFrame

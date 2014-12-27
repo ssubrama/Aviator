@@ -1,0 +1,5 @@
+This branch contains blink-specific versions of the master branch
+of the csswg-repo.
+
+For now, this repo is empty on the branch (this is just a placeholder to
+get the mechanics of importing the repos with DEPS working).

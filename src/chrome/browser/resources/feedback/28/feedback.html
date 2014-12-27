@@ -1,0 +1,76 @@
+<!DOCTYPE HTML> <!--champion -->
+<html i18n-values="dir:textdirection;">
+<head>
+<meta charset="utf-8">
+<title i18n-content="page-title"></title>
+<link rel="stylesheet" href="aviator://resources/css/widgets.css">
+<link rel="stylesheet" href="aviator://resources/css/chrome_shared.css">
+<link rel="stylesheet" href="feedback.css">
+
+<script src="aviator://resources/js/load_time_data.js"></script>
+<script src="aviator://resources/js/util.js"></script>
+<script src="aviator://feedback/feedback.js"></script>
+<script src="aviator://feedback/strings.js"></script>
+</head>
+<body id="feedback-page"
+    i18n-values=".style.fontFamily:fontfamily;.style.fontSize:fontsize">
+  <h1 id="title" i18n-content="title"></h1>
+  <h1 id="launcher-title" i18n-content="launcher-title"></h1>
+  <div id="content">
+    <span id="description" i18n-content="description"></span>
+    <span id="launcher-description" i18n-content="launcher-description"></span>
+    <textarea id="description-text" rows="10"></textarea>
+    <div id="page-url" class="input-text-container checkbox">
+      <label>
+        <input id="page-url-checkbox" type="checkbox"
+            value="pageurl" checked>
+        <span id="page-url-label" i18n-content="page-url"></span>
+      </label>
+      <input id="page-url-text">
+    </div>
+    <!-- User e-mail -->
+    <div id="user-email" class="input-text-container checkbox">
+      <label>
+        <input id="user-email-checkbox" type="checkbox">
+        <span id="user-email-label" i18n-content="user-email"></span>
+      </label>
+      <input id="user-email-text">
+    </div>
+    <!-- Screenshot -->
+    <div id="screenshot-row" hidden>
+      <div class="checkbox">
+        <label>
+          <input id="screenshot-checkbox" type="checkbox">
+          <span id="screenshot-label-current"
+              i18n-content="current-screenshot"></span>
+<if expr="pp_ifdef('chromeos')">
+          <span id="screenshot-label-saved"
+              i18n-content="saved-screenshot" hidden></span>
+        </label>
+        <a id="screenshot-link-tosaved" href="#"
+            i18n-content="choose-different-screenshot" hidden>
+        </a>
+        <a id="screenshot-link-tocurrent" href="#"
+            i18n-content="choose-original-screenshot" hidden>
+        </a>
+</if>
+      </div>
+<if expr="pp_ifdef('chromeos')">
+      <div id="saved-screenshots" class="thumbnail-list" hidden></div>
+</if>
+      <!--div id="current-screenshots" class="thumbnail-list"></div-->
+      <input type='file' id='imgfile' onchange="loadImage();" /><br>
+    </div>
+    <div id="privacy-note" i18n-values=".innerHTML:privacy-note"></div>
+    <!-- Buttons -->
+    <div id="buttons-pane">
+      <input id="send-report-button" type="button"
+          class="feedback-button" i18n-values="value:send-report">
+      <input id="cancel-button" type="submit"
+          class="feedback-button" i18n-values="value:cancel">
+    </div>
+    <div id="screenshot-code" style="visibility: hidden"></div>
+   </div>
+  <script src="aviator://resources/js/i18n_template2.js"></script>
+</body>
+</html>

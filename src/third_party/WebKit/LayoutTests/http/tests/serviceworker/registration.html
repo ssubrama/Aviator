@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<title>Service Worker: Registration</title>
+<script src="../resources/testharness.js"></script>
+<script src="../resources/testharnessreport.js"></script>
+<script src="resources/test-helpers.js"></script>
+<script>
+(function() {
+    var t = async_test('Registering normal pattern');
+    t.step(function() {
+        var scope = '/registration/*';
+        navigator.serviceWorker.register(
+            'resources/registration-worker.js',
+            {scope: scope}
+        ).then(
+            t.step_func(function(worker) {
+                assert_true(worker instanceof ServiceWorker,
+                            'Successfully registered.');
+                service_worker_unregister_and_done(t, scope);
+            }),
+            t.step_func(function(reason) {
+                assert_unreached('Registration should succeed, but failed: ' + reason.name);
+            })
+        );
+    });
+}());
+
+(function() {
+    var t = async_test('Registering scope outside domain');
+    t.step(function() {
+        navigator.serviceWorker.register(
+            'resources/registration-worker.js',
+            {scope: 'http://example.com/*'}
+        ).then(
+            t.step_func(function(worker) {
+                assert_unreached('Registration scope outside domain should fail.');
+            }),
+            t.step_func(function(reason) {
+                assert_equals(reason.name, 'SecurityError',
+                              'Registration scope outside domain should fail with SecurityError.');
+                t.done();
+            })
+        );
+    });
+}());
+
+(function() {
+    var t = async_test('Registering script outside domain');
+    t.step(function() {
+        navigator.serviceWorker.register(
+            'http://example.com/worker.js'
+        ).then(
+            t.step_func(function(worker) {
+                assert_unreached('Registration script outside domain should fail.');
+            }),
+            t.step_func(function(reason) {
+                assert_equals(reason.name, 'SecurityError',
+                             'Registration script outside domain should fail with SecurityError.');
+                t.done();
+            })
+        );
+    });
+}());
+
+(function() {
+    var t = async_test('Registering non-existent script');
+    t.step(function() {
+        navigator.serviceWorker.register(
+            'resources/no-such-worker.js'
+        ).then(
+            t.step_func(function(worker) {
+                assert_unreached('Registration of non-existent script should fail.');
+            }),
+            t.step_func(function(reason) {
+                assert_equals(reason.name, 'AbortError',
+                             'Registration of non-existent script should fail.');
+                t.done();
+            })
+        );
+    });
+}());
+
+</script>

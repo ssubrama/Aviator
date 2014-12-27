@@ -1,0 +1,4 @@
+Tests the TimelineFlameChart automatically sized window.
+
+time delta: 1000
+

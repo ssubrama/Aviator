@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prefixed and unprefixed EME API</title>
+        <script src="../w3c-media-utils.js"></script>
+        <script src="../../resources/testharness.js"></script>
+        <script src="../../resources/testharnessreport.js"></script>
+    </head>
+    <body>
+        <video id="testVideo"></video>
+        <div id="log"></div>
+        <p>Call unprefixed EME API after prefixed EME API.</p>
+        <script>
+            async_test(function(test)
+            {
+                var video = document.getElementById("testVideo");
+                assert_not_equals(video, null);
+
+                function loadStarted()
+                {
+                    video.webkitGenerateKeyRequest('webkit-org.w3.clearkey');
+                    var mediaKeys = new MediaKeys("org.w3.clearkey");
+                    assert_not_equals(mediaKeys, null);
+                    assert_equals(mediaKeys.keySystem, 'org.w3.clearkey');
+                    assert_throws('InvalidStateError',
+                                   function () { video.setMediaKeys(mediaKeys); });
+                    test.done();
+                }
+
+                video.src = "../content/test.webm";
+                waitForEventAndRunStep('loadstart', video, loadStarted, test);
+            }, "Call unprefixed EME API after prefixed EME API.");
+        </script>
+    </body>
+</html>

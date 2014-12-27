@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+    <div style="width: 1000px; height: 1000px; position: absolute; top: 0; left: 0;"></div>
+    <div style="width: 100px; height: 100px; position: absolute; top: 100px; left: 0; background: green"></div>
+    <p>
+        Test for <i><a href="rdar://problem/6643103">rdar://problem/6643103</a>
+        Unscaled values from body.scrollHeight</i>.
+    </p>
+    <pre id="console"></pre>
+    <script>
+        function log(message)
+        {
+            var console = document.getElementById("console");
+            console.appendChild(document.createTextNode(message + "\n"));
+        }
+
+        if (window.testRunner) {
+            testRunner.dumpAsText();
+            var body = document.body;
+            var documentElement = document.documentElement;
+            log("scrollHeight: " + body.scrollHeight);
+            log("scrollWidth: " + body.scrollWidth);
+
+            log("\nScrolling right to 50");
+            documentElement.scrollLeft = 50;
+            log("scrollLeft: " + documentElement.scrollLeft);
+
+            log("\nZooming in");
+            eventSender.zoomPageIn();
+            log("scrollHeight: " + body.scrollHeight);
+            log("scrollWidth: " + body.scrollWidth);
+            log("scrollTop: " + documentElement.scrollTop);
+            log("scrollLeft: " + documentElement.scrollLeft);
+
+            log("\nScrolling down to 100");
+            documentElement.scrollTop = 100;
+            log("scrollTop: " + documentElement.scrollTop);
+
+            log("\nZooming back out");
+            eventSender.zoomPageOut();
+            log("scrollTop: " + documentElement.scrollTop);
+            log("scrollLeft: " + documentElement.scrollLeft);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="../../resources/js-test.js"></script>
+
+<div id=test-container>
+<p><a id=a1 tabindex=0 title="focusable">Anchor with tab index</a>
+<p><a id=a2 title="not focusable">Anchor without tab index</a>
+<p><a id=a3 href="#" title="not focusable">Link without tab index</a>
+<p><a id=a4 href="#" tabindex=0 title="focusable">Link with tab index</a>
+<p><a id=a5 href="#" contentEditable title="focusable">Link with contentEditable</a>
+<p contenteditable id="p6" title="focusable"><a id=a6 href="#" title="not focusable">Link inside contentEditable</a>
+<p tabindex="1" id="p7" title="focusable"><a id="a7" href="#" title="not focusable">Link inside an elment with tabindex</a>
+</div>
+
+<div id="console"></div>
+
+<script>
+description('This test ensures that we can click to focus an a element.');
+
+function handleFocus(e) {
+    var el = e.target;
+    debug(el.id + ' received focus (' + el.title + ')');
+}
+
+document.addEventListener('focus', handleFocus, true);
+if (window.testRunner) {
+    for (var i = 1; i <= 7; i++) {
+        var aElement = document.getElementById('a' + i);
+        eventSender.mouseMoveTo(aElement.offsetLeft + 2, aElement.offsetTop + 2);
+        eventSender.mouseDown();
+        eventSender.mouseUp();
+    }
+
+    var tc = document.getElementById('test-container');
+    tc.parentNode.removeChild(tc);
+} else {
+    debug('Need testRunner.');
+}
+
+</script>
+</body>
+</html>

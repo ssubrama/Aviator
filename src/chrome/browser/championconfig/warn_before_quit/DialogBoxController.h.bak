@@ -1,0 +1,38 @@
+//
+//  DialogBoxController.h
+//  D
+//
+//  Created by Robin Mills on 4/27/10.
+//  Copyright 2010 RMSC, San Jose, CA, USA. All rights reserved.
+//
+
+#include "../../extensions/window_controller.h"
+#include "../../../../ui/views/controls/image_view.h"
+#include "../../../../ui/views/controls/textfield/textfield.h"
+#include <string>
+
+using namespace std;
+
+extern int iQuitRadioSelectedTag;
+
+public class DialogBoxController : public WindowController {
+public:
+	DialogBoxController ();
+	void setImagePath (string aImagePath);
+private:
+	TextField   textField;
+	ImageView   imageView;
+	TextField   imageField;
+    //IBOutlet    NSMatrix *nsmatQuitRadio;
+    //IBOutlet NSButtonCell *nsbcellQuitRadio_Yes;
+    //IBOutlet NSButtonCell *nsbcellQuitRadio_No;
+	string				imagePath;
+};
+// actions
+//- (IBAction) closeButton:(id)sender;
+//- (IBAction) imageFile:(id)sender;
+//- (IBAction) quitRadioAction:(id)sender;
+
+
+// property getters/setters
+

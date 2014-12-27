@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+  <head>
+    <style>
+      div {
+        height: 9999px;
+        width: 9999px;
+      }
+    </style>
+    <script>
+        function scroll() {
+          document.documentElement.scrollTop = 5000;
+          document.documentElement.scrollLeft = 4000;
+
+          parent.verifyTest()
+        }
+    </script>
+  </head>
+<body onload="scroll()">
+    <div></div>
+</body>
+</html>
