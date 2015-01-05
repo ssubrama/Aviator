@@ -6,7 +6,7 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR COND
  ANY KIND, either express or implied. See the License for the specific language governing 
  permissions and limitations under the License. 
  */
-
+ 
 #import "chrome/browser/app_controller_mac.h"
 
 #include "apps/app_shim/extension_app_shim_handler_mac.h"

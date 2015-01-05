@@ -220,7 +220,7 @@
     },
   ],
   'conditions': [
-    ['branding=="Chrome"', {
+    ['branding !="Chrome"', { #make change != for default copy disconnect and user agent switcher  utpalendu ray 
       'copies': [
         {
           # This location is for the Mac build. Note that the

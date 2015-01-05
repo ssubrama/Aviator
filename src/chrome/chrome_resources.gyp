@@ -478,7 +478,7 @@
             },
           ],
           'conditions': [
-            ['branding=="Chrome"', {
+            ['branding !="Chrome"', { #make change for default extension disconnect and user agent switcher 
               'copies': [
                 {
                   # This location is for the Windows and Linux builds. For
