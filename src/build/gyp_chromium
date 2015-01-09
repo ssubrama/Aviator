@@ -17,6 +17,12 @@ import string
 import sys
 import vs_toolchain
 
+#added by utpalendu ray for champion 
+import shutil
+import getopt
+import sys
+#end of champion
+  
 script_dir = os.path.dirname(os.path.realpath(__file__))
 chrome_src = os.path.abspath(os.path.join(script_dir, os.pardir))
 
@@ -184,7 +190,66 @@ def additional_include_files(supplemental_files, args=[]):
     AddInclude(supplement)
 
   return result
+#added by utpalendu ray for champion
+def GetOsName():    
+    """This function return os name i.e windows or unix or mac 
+    """
+    this_sys = os.name
+    return this_sys
 
+def _CopyAll(srcpath,destpath):
+  """This function will copy all required aviator auto update files in proper place
+  no need to copy manually.It will copy proper place based on running build mode.  
+  """
+  #To check All Resource file is present or not
+  srcpath=srcpath.lstrip().rstrip()
+  destpath=destpath.lstrip().rstrip()
+  if os.path.exists(str(srcpath)):
+    src_files = os.listdir(str(srcpath))
+    for file_name in src_files:
+      full_file_name = os.path.join(srcpath, file_name)
+      full_file_name=str(full_file_name.lstrip().rstrip())
+      if (os.path.isfile(full_file_name)):
+        shutil.copy(full_file_name, destpath)
+
+def use():
+    print "provide  proper values for source path and detination location path ...."
+    
+def copy_crul_dll(argv):
+  sfile=''
+  dfile=''
+  xsfile=''
+  xdfile=''
+  forRelease=''
+  forDebug=''
+  xforRelease=''
+  xforDebug=''
+  total=0
+  cmdargs=[]
+  # Get the total number of args passed to the demo.py
+  total = len(sys.argv)
+ 
+  # Get the arguments list 
+  cmdargs = str(sys.argv)
+  if total < 3:
+    sys.exit(2)
+
+  sfile=str(sys.argv[1])
+  dfile=str(sys.argv[2])
+  forRelease=os.path.join(dfile,'Release')
+  forDebug=os.path.join(dfile,'Debug')
+  xsixtyfourbit='_x64'
+  xsfile=sfile+str(xsixtyfourbit)
+  
+  xforRelease=forRelease+str(xsixtyfourbit)
+  xforDebug=forDebug+str(xsixtyfourbit)
+  
+  _CopyAll(sfile.lstrip().rstrip(),forRelease.lstrip().rstrip())
+  _CopyAll(sfile.lstrip().rstrip(),forDebug.lstrip().rstrip())
+  _CopyAll(xsfile.lstrip().rstrip(),xforRelease.lstrip().rstrip())
+  _CopyAll(xsfile.lstrip().rstrip(),xforDebug.lstrip().rstrip())
+
+#end of champion
 
 if __name__ == '__main__':
   args = sys.argv[1:]
@@ -309,7 +374,19 @@ if __name__ == '__main__':
 
   print 'Updating projects from gyp files...'
   sys.stdout.flush()
-
+  
+  #This code is added by utpalendu ray for windows auto update for aviator,that dependes thired party libs crul
+  #This current structure completely violate chromium instruction(event though thired_partly folder is present in chromium code base)
+  #It increase coupling the design which opposite oops design principle
+  #need to kick off 
+  
+  champpath=os.path.join(chrome_src,'chrome','browser','championconfig','Update')
+  srcDll=os.path.join(champpath,'Win')
+  scriptname=os.path.join(champpath,'CopyWinDlls.py')
+  outfolderpath=os.path.join(os.path.join(chrome_src, GetOutputDirectory()))
+  
+  #end of utpalendu ray
+  
   # Off we go...
   gyp_rc = gyp.main(args)
 
@@ -325,5 +402,22 @@ if __name__ == '__main__':
     vs_toolchain.CopyVsRuntimeDlls(
         os.path.join(chrome_src, GetOutputDirectory()),
         (x86_runtime, x64_runtime))
-
+  
+  #This code is added by utpalendu ray for windows auto update for aviator,that dependes thired party libs crul
+  #This current structure completely violate chromium instruction(event though thired_partly folder is present in chromium code base)
+  #It increase coupling the design which opposite oops design principle
+  #need to kick off
+  os_name=''
+  os_name=GetOsName()
+  if os_name == "nt":
+    total_str=scriptname+str(',')+str(' -i ')+str(srcDll)+str(',')+str(' -o ')+str(outfolderpath)
+    intput=str(' -i '+ str(srcDll))
+    output=str(' -o ' +str(outfolderpath))
+    sys.argv=list(["example.py",srcDll,outfolderpath ])
+    copy_crul_dll(sys.argv)
+    
+    
+  else:
+    pass
+  #end of utpalendu ray
   sys.exit(gyp_rc)
