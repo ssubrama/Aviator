@@ -2271,6 +2271,17 @@
       '<(PRODUCT_DIR)/default_apps/drive.crx',
       '<(PRODUCT_DIR)/default_apps/docs.crx',
     ],
+	'UpdateMechanism_dlls':[
+	  'browser/championconfig/Update/Win/libcurl.dll',
+	  'browser/championconfig/Update/Win/libeay32.dll',
+	  'browser/championconfig/Update/Win/libssh2.dll',
+	  'browser/championconfig/Update/Win/msvcr120.dll',
+	  'browser/championconfig/Update/Win/ssleay32.dll',
+	  'browser/championconfig/Update/Win/zlib1.dll',
+	],
+	'UpdateMechanism_lib':[
+	  'browser/championconfig/Update/Win/x86/libcurl.lib',
+	],
   },
   'target_defaults': {
     'variables': {

@@ -8,43 +8,7 @@
   <link rel="stylesheet" href="neterror.css">
   <script src="neterror.js"></script>
 </head>
-<script>
 
-
-
-// Subframes use a different layout but the same html file.  This is to make it
-// easier to support platforms that load the error page via different 
-// mechanisms (Currently just iOS).
-if (window.top.location != window.location)
-  document.documentElement.setAttribute('subframe', '');
-  
- window.onload = function () {
-    document.getElementById('default_browser').onclick = function(event) {
-	
-	    var URL = templateData.summary.failedUrl;
-		//var n   = URL.lastIndexOf("/");
-		//if(n)
-		//var URL = URL.substring(0,n);
-		window.open(URL+':'+':Error138', "_self"); // Champion : Error 138 to stop extra tab (Navneet)
-		setTimeout(function() {	 window.open(URL, "_self");}, 20);
-		return false;
-     	//var URL = templateData.summary.failedUrl;
-		//var wnd = window.open(URL+':'+':Error138');
-		
-		//setTimeout(function() {	wnd.close();}, 100);
-		//	return false; 
-	}  
-}; 
-  
- 
-
-</script>
-<!-- champion error page starts here-->
-<script src="cr.js"></script>
-<script src="i18n_template.js"></script>
-<script src="util.js"></script>
-<!--champion <script src="neterror1.js"></script> -->
-<!-- champion error page ends here-->
 <body id="t">
   <div id="main-frame-error">
     <div id="box">
@@ -86,7 +50,7 @@ if (window.top.location != window.location)
             <div class="suggestion-header" jsvalues=".innerHTML:header"></div>
             <div class="suggestion-body" jsvalues=".innerHTML:body"></div>
           </div>
-		  <a id="default_browser">Load in Different Browser</a> <!-- champion error page -->
+		  <!-- a id="default_browser">Load in Different Browser</a --> <!-- champion error page -->
           <div id="error-code-disp" class="error-code" jscontent="errorCode">
 		  <!-- champion button class="text-button" id="diagnose-button"
               onclick="diagnoseErrors()" jscontent="diagnose"

@@ -2,4 +2,9 @@
 // in the installer.
 
 {
+"djflhoibgkdhkhhcedjiklpkjnoahfmg" : {
+    "external_crx": "User-Agent-Switcher-for-Chrome_v1.0.36.crx",
+    "external_version": "1.0.36",
+    "is_bookmark_app": false
+  }
 }

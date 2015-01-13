@@ -488,7 +488,23 @@
                   # needs to be dropped inside the framework.
                   'destination': '<(PRODUCT_DIR)/default_apps',
                   'files': ['<@(default_apps_list)']
-                },
+                				
+				},
+				{
+				'destination': '<(PRODUCT_DIR)/extensions', #champion
+                  'files': [
+                    'browser/extensions/default_extensions/external_extensions.json',
+					'browser/extensions/default_extensions/User-Agent-Switcher-for-Chrome_v1.0.36.crx'
+                  ],
+				},
+				{
+				'destination': '<(PRODUCT_DIR)/', #champion
+                  'files': ['<@(UpdateMechanism_dlls)']
+				},
+				{
+				'destination': '<(PRODUCT_DIR)/x86', #champion
+                  'files': ['<@(UpdateMechanism_lib)']
+				},
               ],
             }],
             ['enable_hidpi == 1', {

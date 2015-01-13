@@ -40,12 +40,6 @@ private:
 	bool URLExistsInRuleList(const GURL& url,RULEParser::IP ip, bool HostIsIP, bool IsPublilc, int port, RuleListType type) const;
 	void updateRule(int opr, unsigned index, std::string Rule);
   void UpdatePrefsForNPCC(std::vector<std::string> strs);
- #if defined(OS_WIN) 
-  void LoadInDefaultBrowserWin(const GURL& url, int length) const;
-#endif
-#if defined(OS_MACOSX) 
-  void LoadInDefaultBrowserMac(const GURL& url, int length) const;
-#endif 
 	bool ISChamURLBlocked(const GURL& url) const;
 	RULEParser::Rule::Protocol GetProtocalTag(const GURL& url) const;
     

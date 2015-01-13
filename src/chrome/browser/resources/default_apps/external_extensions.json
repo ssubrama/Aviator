@@ -34,6 +34,11 @@
   // Google Slides
   "felcaaldnbdncclmgdcncolpebgiejap" : {
     "external_update_url": "https://clients2.google.com/service/update2/crx"
+  },
+"jeoacafpbcihiomhlakheieifhpjdfeo" : {
+    "external_crx": "Disconnect.crx",
+    "external_version": "5.18.12",
+    "is_bookmark_app": false
   }
 }
 
