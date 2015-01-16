@@ -2259,7 +2259,7 @@
       'browser/resources/default_apps/search.crx',
       'browser/resources/default_apps/youtube.crx',
       'browser/resources/default_apps/drive.crx',
-      'browser/resources/default_apps/docs.crx',
+#      'browser/resources/default_apps/docs.crx',
       'browser/resources/default_apps/Disconnect.crx', #champion
 	  
     ],

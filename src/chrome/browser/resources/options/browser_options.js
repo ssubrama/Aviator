@@ -336,7 +336,7 @@ cr.define('options', function() {
         }
         $('set-as-default-browser').onclick = function(event) {
           chrome.send('becomeDefaultBrowser');
-	  OptionsPage.navigateToPage('alternateBrowser');  // champion
+	/*  OptionsPage.navigateToPage('alternateBrowser');  */ // champion
         };
 
         $('auto-launch').onclick = this.handleAutoLaunchChanged_;

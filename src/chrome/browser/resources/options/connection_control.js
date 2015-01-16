@@ -67,21 +67,21 @@ cr.define('options', function () {
         OptionsPage.closeOverlay();
       };
 
-      $('default_chk').onclick = function (event) {
+ /*     $('default_chk').onclick = function (event) {
         var bool_default_chk = document.getElementById('default_chk').checked;
         chrome.send('SetLoadInDefaultBrowser', [bool_default_chk]);
-      };
+      }; */
 
       /*** Added for Champion
       ***** alternate browser Options js start here***/
-      $('blocked-url-browser').onchange = function () {
+/*      $('blocked-url-browser').onchange = function () {
         var browserSelect = $('blocked-url-browser');
         var selectedIndex = browserSelect.selectedIndex;
         if (selectedIndex >= 0) {
           var selection = browserSelect.options[selectedIndex];
           chrome.send('setBlockedURLAlternateBrowserInPrefs', [String(selection.innerHTML)]);
         }
-      };
+      };*/
 
       $('rule').onclick = function (event) {
         if (flag == 1) {
@@ -971,14 +971,14 @@ cr.define('options', function () {
   /**** Added for CHAMPION: for showing the browser installed in system******/
   ConnectionControl.InitBrowserList = function (Browserlist, alternateBrowser) {
     var defaultOptionsValue = '';
-    var browserSelect = document.getElementById("blocked-url-browser");
+/*    var browserSelect = document.getElementById("blocked-url-browser");
     for (i = 0; i <= Browserlist.length - 1; i++) {
       browserSelect.add(new Option(Browserlist[i], i), browserSelect.options[i]);
       if (browserSelect.options[i].innerHTML == alternateBrowser) {
         defaultOptionsValue = browserSelect.options[i].value;
       }
     }
-    browserSelect.selectedIndex = defaultOptionsValue;
+    browserSelect.selectedIndex = defaultOptionsValue;*/
 
     // champion added for page scroll issue noted in rel 78002 start
     var table = document.getElementById('tableId');
@@ -1089,9 +1089,9 @@ cr.define('options', function () {
     }
   };
 
-  ConnectionControl.InitLoadInDefaultBrowser = function (handlersenabled) {
+/*  ConnectionControl.InitLoadInDefaultBrowser = function (handlersenabled) {
     document.getElementById('default_chk').checked = handlersenabled;
-  };
+  }; */
 
   return {
     ConnectionControl: ConnectionControl

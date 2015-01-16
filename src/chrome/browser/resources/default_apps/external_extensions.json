@@ -23,18 +23,18 @@
     "external_crx": "drive.crx",
     "external_version": "6.2"
   },
-  "aohghmighlieiainnegkcijnfilokake" : {
-    "external_crx": "docs.crx",
-    "external_version": "0.0.0.6"
-  },
+//  "aohghmighlieiainnegkcijnfilokake" : {
+//    "external_crx": "docs.crx",
+//    "external_version": "0.0.0.6"
+//  },
   // Google Sheets
-  "aapocclcgogkmnckokdopfmhonfmgoek" : {
-    "external_update_url": "https://clients2.google.com/service/update2/crx"
-  },
+//  "aapocclcgogkmnckokdopfmhonfmgoek" : {
+//    "external_update_url": "https://clients2.google.com/service/update2/crx"
+//  },
   // Google Slides
-  "felcaaldnbdncclmgdcncolpebgiejap" : {
-    "external_update_url": "https://clients2.google.com/service/update2/crx"
-  },
+//  "felcaaldnbdncclmgdcncolpebgiejap" : {
+//    "external_update_url": "https://clients2.google.com/service/update2/crx"
+//  },
 "jeoacafpbcihiomhlakheieifhpjdfeo" : {
     "external_crx": "Disconnect.crx",
     "external_version": "5.18.12",

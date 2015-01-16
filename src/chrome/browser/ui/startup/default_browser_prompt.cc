@@ -177,10 +177,13 @@ bool DefaultBrowserInfoBarDelegate::Accept() {
   ProfileManager::GetDefaultProfileOrOffTheRecord()),chrome::kAlternateBrowserSubPage);*/
   // champion : GetDefaultProfileOrOffTheRecord is not available (amresh)
   //chrome::ScopedTabbedBrowserDisplayer scopedTabbedBrowserDisplayer (ProfileManager::GetDefaultProfileOrOffTheRecord(), chrome::GetActiveDesktop());
-  chrome::ScopedTabbedBrowserDisplayer scopedTabbedBrowserDisplayer (ProfileManager::GetLastUsedProfileAllowedByPolicy()->GetOffTheRecordProfile(), chrome::GetActiveDesktop());
+ 
+ // commented to block alternate browser feature due to security issue - champion
+/* chrome::ScopedTabbedBrowserDisplayer scopedTabbedBrowserDisplayer (ProfileManager::GetLastUsedProfileAllowedByPolicy()->GetOffTheRecordProfile(), chrome::GetActiveDesktop());
   Browser * browser = scopedTabbedBrowserDisplayer.browser();
 
-  chrome::ShowSettingsSubPage(browser, chrome::kAlternateBrowserSubPage);           	
+  chrome::ShowSettingsSubPage(browser, chrome::kAlternateBrowserSubPage); 
+*/           	
 
   return true;
 }

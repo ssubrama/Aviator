@@ -68,7 +68,7 @@ var CertificateEditCaTrustOverlay = options.CertificateEditCaTrustOverlay;
 var CertificateImportErrorOverlay = options.CertificateImportErrorOverlay;
 </if>
 <include src="alert_overlay.js"></include>
-<include src="alternate_browser.js"></include> // champion alternate browser
+//<include src="alternate_browser.js"></include> // champion alternate browser
 <include src="autofill_edit_address_overlay.js"></include>
 <include src="autofill_edit_creditcard_overlay.js"></include>
 <include src="autofill_options_list.js"></include>

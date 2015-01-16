@@ -140,7 +140,10 @@ bool ConnectionControlManager::ISChamURLBlocked(const GURL& url) const {
 		IsUserURLPublic = true;
 	else
 		IsUserURLPublic = !RULEParser::detect_private_network(host, &UrlIP); // return TRUE for the private networks else FALSE for Public
-	  
+
+  if (!url.scheme().compare("file"))
+    return false; // Allow local files to open
+
 	if (!IsUserURLPublic) // private URL
 	{
 		if ((RULEParser::Rule::GetIsBlockPrivate()) && URLExistsInRuleList(url, UrlIP, IsIP, IsUserURLPublic, int_port, allowprivate))

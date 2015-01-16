@@ -8,7 +8,7 @@
 
 var AddLanguageOverlay = options.AddLanguageOverlay;
 var AlertOverlay = options.AlertOverlay;
-var AlternateBrowser = options.AlternateBrowser; //Added for champion alternate browser  popup
+// var AlternateBrowser = options.AlternateBrowser; //Added for champion alternate browser  popup
 var AutofillEditAddressOverlay = options.AutofillEditAddressOverlay;
 var AutofillEditCreditCardOverlay = options.AutofillEditCreditCardOverlay;
 var AutofillOptions = options.AutofillOptions;
@@ -93,9 +93,9 @@ function load() {
   OptionsPage.registerOverlay(AutofillOptions.getInstance(),
                               BrowserOptions.getInstance(),
                               [$('autofill-settings')]);
-  OptionsPage.registerOverlay(AlternateBrowser.getInstance(), 
+/*  OptionsPage.registerOverlay(AlternateBrowser.getInstance(), 
                               BrowserOptions.getInstance(),
-                              [$('set-as-default-browser')]);//Added for champion alternate broswer popup
+                              [$('set-as-default-browser')]);//Added for champion alternate broswer popup*/
   OptionsPage.registerOverlay(ClearBrowserDataOverlay.getInstance(),
                               BrowserOptions.getInstance(),
                               [$('privacyClearDataButton')]);
