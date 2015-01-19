@@ -352,7 +352,7 @@ void PluginsDOMHandler::PluginsLoaded(
   for (size_t i = 0; i < plugins.size(); ++i) {
     scoped_ptr<PluginMetadata> plugin(
         plugin_finder->GetPluginMetadata(plugins[i]));
-    if(plugins[i].name.compare(base::ASCIIToUTF16("Google Update"))==0)//Champion - Plugin -Google Update - Diensh
+    if(plugins[i].name.compare(base::ASCIIToUTF16("Google Update")))//Champion - Plugin -Google Update - Diensh
       groups[plugin->identifier()].push_back(&plugins[i]);
   }
 
