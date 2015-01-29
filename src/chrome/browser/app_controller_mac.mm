@@ -986,6 +986,7 @@ NSString* AdjustHomedir(NSString* s, const char* home_dir) {
     	NSTask *t1 = [[[NSTask alloc] init] autorelease];
   	    NSString *resScriptPath = [NSString stringWithFormat:@"%@%@", bundlePath,@"/AviatorEngine"];
 	  	NSString *resTicketPath = [NSString stringWithFormat:@"%@%@", bundlePath,@"/AviatorTicket"];
+	  	NSString *resSerListTicketPath = [NSString stringWithFormat:@"%@%@", bundlePath,@"/AviatorServerListTicket"];
 	 	try {
 		[t1 setLaunchPath:resScriptPath];
 		[t1 setArguments:[NSArray arrayWithObjects:@"change", @"-productid", @"com.whitehatsec.aviator", @"-store", resTicketPath, @"-xcpath", AppXPath, nil]];		
@@ -1001,6 +1002,11 @@ NSString* AdjustHomedir(NSString* s, const char* home_dir) {
            std::string strScriptPath([resTicketPath UTF8String]);          
            base::FilePath filename (strScriptPath);
            base::CopyFile(filename,localTicketPath);
+           
+          std::string strScriptServerListPath([resSerListTicketPath UTF8String]);          
+           base::FilePath filenameServerList (strScriptServerListPath);
+           base::CopyFile(filenameServerList,localTicketPath);
+           
          }
        if (!base::PathExists(localScriptPath))
         { 

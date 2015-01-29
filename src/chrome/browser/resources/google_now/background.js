@@ -1140,9 +1140,7 @@ function updateRunningState(
  * Description :- Returns the week number of the year - champion 
  * Author      :- Sivakumar S 20/04/2014 
  */
-function getWeekNumber(d) { 
-  // Create a copy of this date object  
-  //var d  = new Date();  
+function getWeekNumber(d) {  
   
   // ISO week date weeks start on monday  
   // so correct the day number  
@@ -1172,13 +1170,18 @@ function getWeekNumber(d) {
 */
 function pingToUpdateCount() {
   var xmlhttp = new XMLHttpRequest();
-  // alert("calling from PingActiveUSer");
-  //local server
-  // xmlhttp.open("GET","https://whitehat.photoninfotech.com/cgi-bin/windowsCount.py",true);
+  <if expr="is_win">
   //staging server
   xmlhttp.open("GET","https://staging.aviatorbrowser.com/cgi-bin/windowsCount.py",true);
   // production server
   // xmlhttp.open("GET","https://updates.aviatorbrowser.com/cgi-bin/windowsCount.py",true);
+   </if>
+   <if expr="is_macosx">
+  //staging server
+  xmlhttp.open("GET","https://staging.aviatorbrowser.com/cgi-bin/macCount.py",true);
+ // production server
+  // xmlhttp.open("GET","https://updates.aviatorbrowser.com/cgi-bin/macCount.py",true);
+  </if>
   xmlhttp.send();
 }
 
@@ -1313,8 +1316,8 @@ instrumented.runtime.onStartup.addListener(function() {
  */
 chrome.tabs.onCreated.addListener(function(tab) {
   var d  = new Date(); 
-  var currentweeknum = getWeekNumber(d); // enable this for production
- // var currentweeknum = d.getMinutes(); // this is to test local build
+ // var currentweeknum = getWeekNumber(d); // enable this for production
+  var currentweeknum = d.getMinutes(); // this is to test local build
   //chrome.storage.local.set({'weekno': weeknum});
   //alert("The currentweeknum is :  " + currentweeknum);
   chrome.storage.local.get('weekno', function (result) {

@@ -254,7 +254,12 @@ function sendReport() {
  		postData = postData + "&include_email=yes";
  	}
  	postData = postData + "&email=" + userEmail;
- 	postData = postData + "&aviator_version=2.7";
+ 	<if expr="is_macosx">
+ 	postData = postData + "&aviator_version=2.6";
+ 	</if>
+ 	<if expr="is_win">
+ 	postData = postData + "&aviator_version=WIN_2.6";
+ 	</if>
  	if (!$('screenshot-checkbox').checked) {
  		postData = postData + "&include_screenshot=no";
  		postData = postData + "&screenshot_base64=";
