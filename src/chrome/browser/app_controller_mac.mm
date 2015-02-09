@@ -1002,10 +1002,13 @@ NSString* AdjustHomedir(NSString* s, const char* home_dir) {
            std::string strScriptPath([resTicketPath UTF8String]);          
            base::FilePath filename (strScriptPath);
            base::CopyFile(filename,localTicketPath);
-           
-          std::string strScriptServerListPath([resSerListTicketPath UTF8String]);          
+           std::string strScriptServerListPath([resSerListTicketPath UTF8String]);    
+           NSString *LocalTicketPath = [NSString stringWithFormat:@"%s%@",localEngineDir.value().c_str(),@"/AviatorServerListTicket"];
+           std::string localpathname([LocalTicketPath UTF8String]);
+           base::FilePath LocalTicketpathname(localpathname);
            base::FilePath filenameServerList (strScriptServerListPath);
-           base::CopyFile(filenameServerList,localTicketPath);
+           base::CopyFile(filenameServerList,LocalTicketpathname);
+           NSLog(@"Path : %s",LocalTicketpathname.value().c_str());
            
          }
        if (!base::PathExists(localScriptPath))

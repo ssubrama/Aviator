@@ -1170,18 +1170,19 @@ function getWeekNumber(d) {
 */
 function pingToUpdateCount() {
   var xmlhttp = new XMLHttpRequest();
-  <if expr="is_win">
+
+ if (navigator.appVersion.indexOf("Win")!=-1) {
   //staging server
   xmlhttp.open("GET","https://staging.aviatorbrowser.com/cgi-bin/windowsCount.py",true);
   // production server
   // xmlhttp.open("GET","https://updates.aviatorbrowser.com/cgi-bin/windowsCount.py",true);
-   </if>
-   <if expr="is_macosx">
+   }
+  if (navigator.appVersion.indexOf("Mac")!=-1) {
   //staging server
   xmlhttp.open("GET","https://staging.aviatorbrowser.com/cgi-bin/macCount.py",true);
  // production server
   // xmlhttp.open("GET","https://updates.aviatorbrowser.com/cgi-bin/macCount.py",true);
-  </if>
+  }
   xmlhttp.send();
 }
 
@@ -1319,15 +1320,11 @@ chrome.tabs.onCreated.addListener(function(tab) {
  // var currentweeknum = getWeekNumber(d); // enable this for production
   var currentweeknum = d.getMinutes(); // this is to test local build
   //chrome.storage.local.set({'weekno': weeknum});
-  //alert("The currentweeknum is :  " + currentweeknum);
   chrome.storage.local.get('weekno', function (result) {
     var weeknum = result.weekno;
-    //alert("Inside get function:  " + weeknum);
     if (weeknum = '' || (weeknum != currentweeknum) ) {
       chrome.storage.local.set({'weekno': currentweeknum});
-      // alert("if (weeknum = '' || (weeknum != currentweeknum) " + currentweeknum);
       pingToUpdateCount();
-      //alert("pingToUpdateCount(); " + currentweeknum);
     }
   });
 });

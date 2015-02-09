@@ -254,12 +254,12 @@ function sendReport() {
  		postData = postData + "&include_email=yes";
  	}
  	postData = postData + "&email=" + userEmail;
- 	<if expr="is_macosx">
- 	postData = postData + "&aviator_version=2.6";
- 	</if>
- 	<if expr="is_win">
+ 	if (navigator.appVersion.indexOf("Mac")!=-1) {
+ 	postData = postData + "&aviator_version=MAC_2.6";
+ 	}
+ 	if (navigator.appVersion.indexOf("Win")!=-1) {
  	postData = postData + "&aviator_version=WIN_2.6";
- 	</if>
+ 	}
  	if (!$('screenshot-checkbox').checked) {
  		postData = postData + "&include_screenshot=no";
  		postData = postData + "&screenshot_base64=";

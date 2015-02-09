@@ -2255,11 +2255,6 @@
     # default_apps/external_extensions.json file must also be updated.
     'default_apps_list': [
       'browser/resources/default_apps/external_extensions.json',
-      'browser/resources/default_apps/gmail.crx',
-      'browser/resources/default_apps/search.crx',
-      'browser/resources/default_apps/youtube.crx',
-      'browser/resources/default_apps/drive.crx',
-#      'browser/resources/default_apps/docs.crx',
       'browser/resources/default_apps/Disconnect.crx', #champion
 	  
     ],
